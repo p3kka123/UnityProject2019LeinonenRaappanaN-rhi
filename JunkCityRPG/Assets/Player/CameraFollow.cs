@@ -9,17 +9,25 @@ public class CameraFollow : MonoBehaviour
     private GameObject GOToFollow;
 
     [SerializeField]
-    private Vector3 offset;
+    private float offset;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        offset = new Vector3(0,5,-6);
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = GOToFollow.transform.position + offset;
+        offset -= Input.mouseScrollDelta.y;
+
+        offset = Mathf.Clamp(offset, 4, 20);
+
+        Vector3 offsetVector = new Vector3(0, offset, -offset * 1.1f);
+
+        //transform.position = GOToFollow.transform.position + offsetVector;
+        //transform.Translate((GOToFollow.transform.position + offsetVector) * Time.deltaTime);
+        transform.position = Vector3.Slerp(transform.position,GOToFollow.transform.position + offsetVector, 0.2f);
     }
+
+
+
+
 }
