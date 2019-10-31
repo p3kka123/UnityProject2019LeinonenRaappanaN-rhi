@@ -15,10 +15,14 @@ public class PlayerController : MonoBehaviour
     private float strafe;
     private float forward;
 
+
+    private Animator animator;
+
     // Start is called before the first frame update
     void Awake()
     {
-            playerDiagonal = playerSpeed / Mathf.Sqrt(2);
+        playerDiagonal = playerSpeed / Mathf.Sqrt(2);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,7 +31,14 @@ public class PlayerController : MonoBehaviour
 
         GetInput();
 
-        playerGO.transform.position += new Vector3(forward, 0, strafe);
+        Vector3 moveVector = new Vector3(forward,0,strafe);
+
+        if(moveVector != Vector3.zero) 
+            animator.SetBool("Moving", true);
+        else
+            animator.SetBool("Moving",false);
+
+        playerGO.transform.position += moveVector;
 
         RotatePlayer();
 
@@ -36,18 +47,10 @@ public class PlayerController : MonoBehaviour
 
 
     private void RotatePlayer() {
-        //transform.position = Vector3.Lerp(transform.position,transform.position + new Vector3(forward,0,strafe), Time.deltaTime * 10);
-
         Vector3 facingRotation = new Vector3(forward,0,strafe).normalized;
 
-        //Quaternion targetRotation = Quaternion.LookRotation(transform.position - facingRotation);
-        //float turnSpeed = 90; //or whatever
-
-        //if(facingRotation != Vector3.zero)
-        //transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation,Time.deltaTime * turnSpeed);
-
         if(facingRotation != Vector3.zero)
-            transform.forward = facingRotation;
+            transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(facingRotation),0.15F);
     }
 
     private void GetInput() {
