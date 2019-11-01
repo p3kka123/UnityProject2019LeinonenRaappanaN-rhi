@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private GameObject reticle;
     private bool inDialog;
 
-    private float playerSpeed = 0.1f;
+    private float playerSpeed = 10f;
     private float playerDiagonal;
     private float strafe;
     private float forward;
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         else
             animator.SetBool("Moving",false);
 
-        playerGO.transform.position += moveVector;
+        playerGO.transform.position += moveVector * Time.deltaTime;
 
         RotatePlayer();
 
