@@ -17,13 +17,11 @@ public class TestDialog : Dialog
         info,
         quest,
         end,
-
     }
 
-    public TestDialog(DialogManager manager)
+    public override void SetManager(DialogManager manager)
     {
         this.manager = manager;
-        this.state = State.greet;
     }
 
     override public void NextLine()

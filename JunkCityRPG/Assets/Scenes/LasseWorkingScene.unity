@@ -112,6 +112,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &378801463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3793897275068708188, guid: ce3c35055602fc34989ca2d938289afa,
+    type: 3}
+  m_PrefabInstance: {fileID: 3793897276649109994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &378801468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378801463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81fc5c1d1fa786a428620cf3849bf621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &820550018
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,5 +464,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3793897275670743149, guid: ce3c35055602fc34989ca2d938289afa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793897275068708178, guid: ce3c35055602fc34989ca2d938289afa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793897275068708178, guid: ce3c35055602fc34989ca2d938289afa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Dialog, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793897275068708178, guid: ce3c35055602fc34989ca2d938289afa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 378801468}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce3c35055602fc34989ca2d938289afa, type: 3}
