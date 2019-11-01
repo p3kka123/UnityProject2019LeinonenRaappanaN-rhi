@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private Transform lockTargetTransform;
     private bool lockedToTarget;
     private GameObject reticle;
+    private bool inDialog;
 
     private float playerSpeed = 0.1f;
     private float playerDiagonal;
@@ -49,6 +50,8 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        InitiateDialog();
+
         GetInput();
 
         TargetObject();
@@ -66,6 +69,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void InitiateDialog() {
+        if(!lockedToTarget) {
+            Camera.main.GetComponent<CameraFollow>().SetGOToFollow(gameObject);
+            inDialog = false;
+
+        }
+        if(!lockTargetTransform) return;
+
+        if(Input.GetKeyDown(KeyCode.E) && lockTargetTransform.gameObject.tag == "NPC") {
+            //Initiate Dialog
+            inDialog = true;
+            Camera.main.GetComponent<CameraFollow>().SetGOToFollow(lockTargetTransform.gameObject);
+        }
+    }
+
     private void TargetObject() {
 
         if(lockTargetTransform == null) {
@@ -79,24 +97,34 @@ public class PlayerController : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(ray,out hit)) {
                 // the object identified by hit.transform was clicked
-                if(hit.transform.gameObject.tag == "Enemy") {
-                    
+                if(hit.transform.gameObject.tag == "Enemy") {                  
                     print("targeted: " + hit.transform.gameObject);
                     lockedToTarget = true;
                     lockTargetTransform = hit.transform;
                     reticle = Instantiate(reticlePrefab);
                     reticle.GetComponent<TargetReticle>().SetTarget(lockTargetTransform);
+                } else if(hit.transform.gameObject.tag == "NPC") {
+                    print("targeted: " + hit.transform.gameObject);
+                    lockedToTarget = true;
+                    lockTargetTransform = hit.transform;
+                    reticle = Instantiate(reticlePrefab);
+                    reticle.GetComponent<TargetReticle>().SetColor(Color.white);
+                    reticle.GetComponent<TargetReticle>().SetTarget(lockTargetTransform);
                 } else {
-                    print("unlocker targer");
-                    lockedToTarget = false;
-                    lockTargetTransform = null;
+                    UnlockFromTarget();
                 }
             } else {
-                print("unlocker targer");
-                lockedToTarget = false;
-                lockTargetTransform = null;
+                UnlockFromTarget();
             }
         }
+    }
+
+
+    private void UnlockFromTarget() {
+        print("unlocked target");
+        lockedToTarget = false;
+        lockTargetTransform = null;
+        inDialog = false;
     }
 
     private void RotatePlayer() {
@@ -119,6 +147,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void GetInput() {
+
+        if(inDialog) return;
+
         if(Input.GetKey(KeyCode.W)) {
             strafe = 1;
         } else if(Input.GetKey(KeyCode.S)) {
@@ -146,8 +177,6 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(0)) {
             animator.SetTrigger("Attack");
         }
-            
-
     }
 
 }
