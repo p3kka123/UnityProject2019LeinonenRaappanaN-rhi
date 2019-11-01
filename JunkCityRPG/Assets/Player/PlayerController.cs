@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private float strafe;
     private float forward;
 
+    private bool attacking;
 
     private Animator animator;
 
@@ -41,7 +42,6 @@ public class PlayerController : MonoBehaviour
         playerGO.transform.position += moveVector;
 
         RotatePlayer();
-
 
     }
 
@@ -77,6 +77,10 @@ public class PlayerController : MonoBehaviour
             forward *= playerSpeed;
             strafe *= playerSpeed;
         }
+
+        if(Input.GetMouseButtonDown(0))
+            animator.SetTrigger("Attack");
+
     }
 
 }
