@@ -30,23 +30,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1312821146277156173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312821145018494063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc784f121f4047459709f1ae7a921e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerGO: {fileID: 1312821145018494063}
-  attackHitBox: {fileID: 3365748484482015380}
-  mainCamera: {fileID: 0}
-  reticlePrefab: {fileID: 1966032649642344190, guid: ed6c6a906ce61d74780d4062a326b41d,
-    type: 3}
 --- !u!114 &2129379901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +42,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1df58da3559b1542958d3cd22d9b63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1312821146277156173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312821145018494063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc784f121f4047459709f1ae7a921e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  playerGO: {fileID: 1312821145018494063}
+  attackHitBox: {fileID: 3365748484482015380}
+  mainCamera: {fileID: 0}
+  reticlePrefab: {fileID: 1966032649642344190, guid: ed6c6a906ce61d74780d4062a326b41d,
+    type: 3}
 --- !u!1 &2984401854225570900
 GameObject:
   m_ObjectHideFlags: 0

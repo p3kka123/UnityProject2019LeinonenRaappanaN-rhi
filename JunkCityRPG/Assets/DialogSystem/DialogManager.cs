@@ -11,20 +11,23 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
 
     private bool askQ;
 
-    [SerializeField] private GameObject grid;
-    [SerializeField] private Button[] buttons;
-    [SerializeField] private Text text;
+    [SerializeField]
+    private PlayerController PController;
+
+    [SerializeField]
+    private GameObject grid;
+    [SerializeField]
+    private Button[] buttons;
+    [SerializeField]
+    private Text text;
 
     Dialog dialog;
 
-    void OnEnable()
+    public void show(Dialog dialog1)
     {
+        this.dialog = dialog1;
+        this.dialog.SetManager(this);
         askQ = false;
-        dialog = new TestDialog(this);
-    }
-
-    public void show()
-    {
         this.gameObject.SetActive(true);
         dialog.NextLine();
     }
@@ -41,6 +44,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
 
     public void endConvo() {
         this.gameObject.SetActive(false);
+        PController.UninitiateDialog();
     }
 
     public void Question(int amount, string[] answers)

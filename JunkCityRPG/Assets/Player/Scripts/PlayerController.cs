@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+
+    [SerializeField]
+    private DialogManager manager;
     
     [SerializeField]
     private GameObject playerGO;
@@ -77,11 +80,18 @@ public class PlayerController : MonoBehaviour
         }
         if(!lockTargetTransform) return;
 
-        if(Input.GetKeyDown(KeyCode.E) && lockTargetTransform.gameObject.tag == "NPC") {
-            //Initiate Dialog
+        if(Input.GetKeyDown(KeyCode.E) && lockTargetTransform.gameObject.tag == "NPC" && lockTargetTransform.gameObject.GetComponent<Dialog>() != null) {
+            manager.show(lockTargetTransform.gameObject.GetComponent<Dialog>());
             inDialog = true;
             Camera.main.GetComponent<CameraFollow>().SetGOToFollow(lockTargetTransform.gameObject);
         }
+    }
+
+    public void UninitiateDialog()
+    {
+        Camera.main.GetComponent<CameraFollow>().SetGOToFollow(gameObject);
+        inDialog = false;
+        UnlockFromTarget();
     }
 
     private void TargetObject() {
@@ -91,7 +101,7 @@ public class PlayerController : MonoBehaviour
             lockedToTarget = false;
         }
 
-        if(Input.GetMouseButtonDown(2)) { // if middle button pressed...
+        if (Input.GetMouseButtonDown(2) && inDialog == false) { // if middle button pressed...
             Destroy(reticle);
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
