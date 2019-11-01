@@ -33,8 +33,21 @@ public class QuestManager : MonoBehaviour
             //open journal
             foreach(Quest quest in activeQuests) {
                 print(quest.GetQuestName());
+
+                List<Quest.QuestPhase> phases = quest.GetCurrentPhases();
+                foreach(Quest.QuestPhase phase in phases) {
+                    print("Objective: " + phase.PhaseDescription);
+                }
             }
         }
+    }
+
+    public Quest FindQuest(string questName) {
+        foreach(Quest quest in activeQuests) 
+            if(quest.GetQuestName() == questName) 
+                return quest;
+        
+        return null;
     }
 
     public void AddQuest(Quest quest) {

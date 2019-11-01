@@ -6,13 +6,16 @@ public class SlobodansHonor : Quest
 {
 
     private bool gaveSlobodanCyanide;
+    private bool playerHasCyanide;
 
-    public SlobodansHonor(string _questName) {
-        questName = _questName;
+    public bool PlayerHasCyanide { get => playerHasCyanide; set => playerHasCyanide = value; }
 
-        AddQuestPhase(new QuestPhase("Find cyanide for Slobodan", false), 0);
-        AddQuestPhase(new QuestPhase("Report Slobodan to authorities",false),0);
-        AddQuestPhase(new QuestPhase("Attend Slobodans trial",false),1);
+    public SlobodansHonor() {
+        questName = "Slobodan's Honor";
+        QuestPhase phase = new QuestPhase("Find cyanide for Slobodan",0,false);
+        AddQuestPhase(phase);
+        AddQuestPhase(new QuestPhase("Report Slobodan to authorities",0,false));
+        AddQuestPhase(new QuestPhase("Attend Slobodans trial",1,false));
     }
 
 
