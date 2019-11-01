@@ -9,6 +9,7 @@ public class SlobodansHonor : Quest
     private bool playerHasCyanide;
 
     public bool PlayerHasCyanide { get => playerHasCyanide; set => playerHasCyanide = value; }
+    public bool GaveSlobodanCyanide { get => gaveSlobodanCyanide; set => gaveSlobodanCyanide = value; }
 
     public SlobodansHonor() {
         questName = "Slobodan's Honor";

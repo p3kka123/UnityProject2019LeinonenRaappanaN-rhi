@@ -54,6 +54,7 @@ public class TestDialog : Dialog
             if(slobodansHonorQuest.PlayerHasCyanide) {
                 manager.ST("How wonderful! I'd like you to come to the city courthouse later today, my friend.");
                 GetComponent<Animator>().SetTrigger("QuestComplete");
+                slobodansHonorQuest.GiveCyanide();
                 transform.position = new Vector3(transform.position.x, transform.position.y-2, transform.position.z);
             }                
             else {
@@ -65,7 +66,7 @@ public class TestDialog : Dialog
             state = State.end;            
         } else if(state == State.end) {
             manager.endConvo();
-            if(!slobodansHonorQuest.PlayerHasCyanide) {
+            if(!slobodansHonorQuest.PlayerHasCyanide || !slobodansHonorQuest.GaveSlobodanCyanide) {
                 state = State.greetAccepted;
             } else {
                 state = State.givenCyanide;
