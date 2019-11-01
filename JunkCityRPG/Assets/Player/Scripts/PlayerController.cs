@@ -67,6 +67,12 @@ public class PlayerController : MonoBehaviour
     }
 
     private void TargetObject() {
+
+        if(lockTargetTransform == null) {
+            Destroy(reticle);
+            lockedToTarget = false;
+        }
+
         if(Input.GetMouseButtonDown(2)) { // if middle button pressed...
             Destroy(reticle);
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
