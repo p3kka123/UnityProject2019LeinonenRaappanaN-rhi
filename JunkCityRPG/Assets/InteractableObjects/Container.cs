@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : Interactable
+public class Container : Interactable
 {
-    [SerializeField]
+
     private Dialog dialog;
+
+    [SerializeField]
+    private List<string> itemsInContainer;
 
     private void Awake() {
         dialog = GetComponent<Dialog>();
     }
+
 
     public override void Interact() {
         DialogManager.Instance.show(dialog);

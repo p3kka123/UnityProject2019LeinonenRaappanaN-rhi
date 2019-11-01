@@ -53,6 +53,8 @@ public class TestDialog : Dialog
         } else if(state == State.giveCyanide) {
             if(slobodansHonorQuest.PlayerHasCyanide) {
                 manager.ST("How wonderful! I'd like you to come to the city courthouse later today, my friend.");
+                GetComponent<Animator>().SetTrigger("QuestComplete");
+                transform.position = new Vector3(transform.position.x, transform.position.y-2, transform.position.z);
             }                
             else {
                 manager.ST("But you have no cyanide! Come back to me when you find some.");

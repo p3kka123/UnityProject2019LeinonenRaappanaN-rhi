@@ -79,8 +79,8 @@ public class PlayerController : MonoBehaviour
         if(!lockTargetTransform) return;
 
         if(Input.GetKeyDown(KeyCode.E) && lockTargetTransform.gameObject.tag == "NPC" && lockTargetTransform.gameObject.GetComponent<Dialog>() != null) {
-            manager.show(lockTargetTransform.gameObject.GetComponent<Dialog>());
-            //lockTargetTransform.gameObject.GetComponent<Interactable>().Interact();
+            //manager.show(lockTargetTransform.gameObject.GetComponent<Dialog>());
+            lockTargetTransform.gameObject.GetComponent<Interactable>().Interact();
             inDialog = true;
             Camera.main.GetComponent<CameraFollow>().SetGOToFollow(lockTargetTransform.gameObject);
         }

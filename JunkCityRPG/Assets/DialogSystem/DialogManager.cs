@@ -9,6 +9,10 @@ using UnityEngine.EventSystems;
 public class DialogManager : MonoBehaviour, IPointerClickHandler
 {
 
+    private static DialogManager _instance;
+
+    public static DialogManager Instance { get { return _instance; } }
+
     private bool askQ;
 
     [SerializeField]
@@ -32,6 +36,16 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
         askQ = false;
         image.gameObject.SetActive(true);
         dialog.NextLine();
+    }
+
+    private void Awake() {
+        if(_instance != null && _instance != this) {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
+
+        DontDestroyOnLoad(this);
     }
 
     public void OnPointerClick(PointerEventData eventData) {
