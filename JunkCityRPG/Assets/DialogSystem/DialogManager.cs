@@ -9,17 +9,18 @@ using UnityEngine.EventSystems;
 public class DialogManager : MonoBehaviour, IPointerClickHandler
 {
 
-    public Text text;
-    string[] lines;
-    int index;
+    private bool askQ;
+
+    [SerializeField] private GameObject grid;
+    [SerializeField] private Button[] buttons;
+    [SerializeField] private Text text;
+
     Dialog dialog;
 
     void OnEnable()
     {
-        //lines = Regex.Split(textFile.text, "\n");
-        dialog = new Dialog(this);
-        //text.text = dialog.GetLine(0);
-        //index = 1;
+        askQ = false;
+        dialog = new TestDialog(this);
     }
 
     public void show()
@@ -30,7 +31,8 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        dialog.NextLine();
+        if(!askQ)
+            dialog.NextLine();
     }
 
     public void ST(string text) {
@@ -39,6 +41,25 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
 
     public void endConvo() {
         this.gameObject.SetActive(false);
+    }
+
+    public void Question(int amount, string[] answers)
+    {
+        askQ = true;
+        for (int i = 0; i < amount; i++){
+            buttons[i].gameObject.SetActive(true);
+            buttons[i].GetComponentInChildren<Text>().text = answers[i];
+        }
+    }
+
+    public void AnsQues(int ans)
+    {
+        askQ = false;
+        foreach (Button button in buttons){
+            button.gameObject.SetActive(false);
+        }
+        dialog.HandleQuestion(ans);
+        dialog.NextLine();
     }
 
 }
