@@ -12,6 +12,9 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
     private bool askQ;
 
     [SerializeField]
+    private Image image;
+
+    [SerializeField]
     private PlayerController PController;
 
     [SerializeField]
@@ -28,7 +31,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
         this.dialog = dialog1;
         this.dialog.SetManager(this);
         askQ = false;
-        this.gameObject.SetActive(true);
+        image.gameObject.SetActive(true);
         dialog.NextLine();
     }
 
@@ -38,12 +41,12 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
             dialog.NextLine();
     }
 
-    public void ST(string text) {
+    public void ST(string text) {//SetText
         this.text.text = text;
     }
 
     public void endConvo() {
-        this.gameObject.SetActive(false);
+        image.gameObject.SetActive(false);
         PController.UninitiateDialog();
     }
 
