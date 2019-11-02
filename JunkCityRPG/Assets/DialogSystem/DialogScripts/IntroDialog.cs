@@ -45,6 +45,7 @@ public class IntroDialog : Dialog
 
     override public void HandleQuestion(int ans) {
         DialogManager.Instance.endConvo();
-        SceneManager.LoadScene("IntroScene");
+        StartCoroutine(SceneFader.Instance.FadeAndLoadScene(SceneFader.FadeDirection.In, "IntroScene"));
+
     }
 }

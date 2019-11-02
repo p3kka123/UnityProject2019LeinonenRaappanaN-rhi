@@ -10,8 +10,6 @@ public class SilamarikDialog : Dialog
     private int guard;
     private DialogNode node;
     [SerializeField]
-    private PlayerCombat playerCombat;
-    [SerializeField]
     private InputField inputField;
     State state;
 
@@ -39,7 +37,7 @@ public class SilamarikDialog : Dialog
         if(state == State.askName && Input.GetKeyDown(KeyCode.Return) && inputField.text.Length != 0)
         {
             inputField.gameObject.SetActive(false);
-            playerCombat.Stats.Name = inputField.text;
+            PlayerManager.Instance.Stats.Name = inputField.text;
             state = State.question1;
             NextLine();
         }
@@ -86,7 +84,7 @@ public class SilamarikDialog : Dialog
                 manager.ST("Since it's your first time here, I'd like to ask a few questions. What is your name?");
                 break;
             case State.question1:
-                node = new DialogNode(playerCombat.Stats.Name + ", that is a fine name indeed. If you don't mind me asking, why are you heading towards Junk City?", "Knowledge", "Money", "To protect others");
+                node = new DialogNode(PlayerManager.Instance.Stats.Name + ", that is a fine name indeed. If you don't mind me asking, why are you heading towards Junk City?", "Knowledge", "Money", "To protect others");
                 HandleNode(node);
                 state = State.question2;
                 break;
