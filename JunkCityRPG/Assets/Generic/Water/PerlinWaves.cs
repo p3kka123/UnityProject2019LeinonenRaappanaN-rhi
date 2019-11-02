@@ -21,9 +21,9 @@ public class PerlinWaves : MonoBehaviour
     void Update()
     {
         MeshFilter mF = GetComponent<MeshFilter>();
-        //MeshCollider mC = GetComponent<MeshCollider>();
+        MeshCollider mC = GetComponent<MeshCollider>();
 
-        //mC.sharedMesh = mF.mesh;
+        mC.sharedMesh = mF.mesh;
 
         Vector3[] verts = mF.mesh.vertices;
 

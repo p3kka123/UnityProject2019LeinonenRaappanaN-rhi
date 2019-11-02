@@ -45,7 +45,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
             _instance = this;
         }
 
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     public void OnPointerClick(PointerEventData eventData) {
@@ -59,7 +59,8 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
 
     public void endConvo() {
         image.gameObject.SetActive(false);
-        PController.UninitiateDialog();
+        if(PController != null)
+            PController.UninitiateDialog();
     }
 
     public void Question(int amount,string[] answers) {

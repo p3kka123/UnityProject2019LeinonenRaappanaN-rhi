@@ -23,7 +23,6 @@ public class ShipSway : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.Euler((Mathf.PerlinNoise(x,z) - 0.5f) * perlinScale,0,(Mathf.PerlinNoise(z+1000,x+1000) - 0.5f) * perlinScale);
-        print(Mathf.PerlinNoise(x,z)-0.5f + " " + (Mathf.PerlinNoise(z + 1000,x + 1000) - 0.5f));
         z += step;
         x += step;
     }
