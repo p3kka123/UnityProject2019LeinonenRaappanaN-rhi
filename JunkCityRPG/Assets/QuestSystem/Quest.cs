@@ -9,9 +9,9 @@ public class Quest
     protected string questName;
     protected int currentPhase = 0;
 
-    protected Dictionary<int, QuestPhase> questPhases;
+    protected Dictionary<int, QuestPhase> questPhases = new Dictionary<int, QuestPhase>();
 
-    protected int phaseIndex = 0;
+    protected int dictionaryIndex = 0;
 
     //public Quest(string _questName) {
     //    questName = _questName;
@@ -26,16 +26,16 @@ public class Quest
         QuestManager.Instance.CompleteQuest(this);
     }
 
-    public void AddQuestPhase(QuestPhase phase, int index) {
-        questPhases.Add(phaseIndex, phase);
-        //phaseIndex++;
+    public void AddQuestPhase(QuestPhase phase) {
+        questPhases.Add(dictionaryIndex, phase);
+        dictionaryIndex++;
     }
 
     public List<QuestPhase> GetCurrentPhases() {
         List<QuestPhase> currentPhases = new List<QuestPhase>();
 
         foreach(KeyValuePair<int, QuestPhase> phase in questPhases) {
-            if(phase.Key == currentPhase)
+            if(phase.Value.PhaseIndex == currentPhase)
                 currentPhases.Add(phase.Value);
         }
 
@@ -47,14 +47,17 @@ public class Quest
     {
         private string phaseDescription;
         private bool completesQuest;
+        private int phaseIndex;
 
-        public QuestPhase(string desc, bool complete) {
+        public QuestPhase(string desc,int index, bool complete) {
             PhaseDescription = desc;
             CompletesQuest = complete;
+            PhaseIndex = index;
         }
 
         public string PhaseDescription { get => phaseDescription; set => phaseDescription = value; }
         public bool CompletesQuest { get => completesQuest; set => completesQuest = value; }
+        public int PhaseIndex { get => phaseIndex; set => phaseIndex = value; }
     }
 
 }

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private DialogManager manager;
-    
+
     [SerializeField]
     private GameObject playerGO;
 
@@ -73,15 +73,14 @@ public class PlayerController : MonoBehaviour
     }
 
     private void InitiateDialog() {
-        if(!lockedToTarget) {
-            Camera.main.GetComponent<CameraFollow>().SetGOToFollow(gameObject);
-            inDialog = false;
-
+        if(!lockedToTarget && inDialog) {
+            UninitiateDialog();
         }
         if(!lockTargetTransform) return;
 
         if(Input.GetKeyDown(KeyCode.E) && lockTargetTransform.gameObject.tag == "NPC" && lockTargetTransform.gameObject.GetComponent<Dialog>() != null) {
-            manager.show(lockTargetTransform.gameObject.GetComponent<Dialog>());
+            //manager.show(lockTargetTransform.gameObject.GetComponent<Dialog>());
+            lockTargetTransform.gameObject.GetComponent<Interactable>().Interact();
             inDialog = true;
             Camera.main.GetComponent<CameraFollow>().SetGOToFollow(lockTargetTransform.gameObject);
         }
