@@ -29,7 +29,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.999, z: 0}
 --- !u!114 &2129379901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +54,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc784f121f4047459709f1ae7a921e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
   playerGO: {fileID: 1312821145018494063}
   attackHitBox: {fileID: 3365748484482015380}
   mainCamera: {fileID: 0}
@@ -253,6 +252,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: eef7cb24a513b0b4cab3d620549ce38e, type: 2}
+    - target: {fileID: 100008, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
 --- !u!1 &1312821145018494063 stripped
