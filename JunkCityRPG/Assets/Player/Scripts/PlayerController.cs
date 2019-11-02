@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-
-    [SerializeField]
-    private DialogManager manager;
-
     [SerializeField]
     private GameObject playerGO;
 
@@ -24,7 +19,6 @@ public class PlayerController : MonoBehaviour
     private Transform lockTargetTransform;
     private bool lockedToTarget;
     private GameObject reticle;
-    private bool inDialog;
 
     private float playerSpeed = 10f;
     private float playerDiagonal;
@@ -73,15 +67,14 @@ public class PlayerController : MonoBehaviour
     }
 
     private void InitiateDialog() {
-        if(!lockedToTarget && inDialog) {
+        if(!lockedToTarget && Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog) {
             UninitiateDialog();
         }
         if(!lockTargetTransform) return;
 
         if(Input.GetKeyDown(KeyCode.E) && lockTargetTransform.gameObject.tag == "NPC" && lockTargetTransform.gameObject.GetComponent<Dialog>() != null) {
-            //manager.show(lockTargetTransform.gameObject.GetComponent<Dialog>());
             lockTargetTransform.gameObject.GetComponent<Interactable>().Interact();
-            inDialog = true;
+            Gamemanager.Instance.CurrentState = Gamemanager.GameState.Dialog;
             Camera.main.GetComponent<CameraFollow>().SetGOToFollow(lockTargetTransform.gameObject);
         }
     }
@@ -89,7 +82,7 @@ public class PlayerController : MonoBehaviour
     public void UninitiateDialog()
     {
         Camera.main.GetComponent<CameraFollow>().SetGOToFollow(gameObject);
-        inDialog = false;
+        Gamemanager.Instance.CurrentState = Gamemanager.Instance.LastState;
         UnlockFromTarget();
     }
 
@@ -100,25 +93,17 @@ public class PlayerController : MonoBehaviour
             lockedToTarget = false;
         }
 
-        if (Input.GetMouseButtonDown(2) && inDialog == false) { // if middle button pressed...
+        if (Input.GetMouseButtonDown(2) && Gamemanager.Instance.CurrentState != Gamemanager.GameState.Dialog) { // if middle button pressed...
             Destroy(reticle);
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if(Physics.Raycast(ray,out hit)) {
                 // the object identified by hit.transform was clicked
                 if(hit.transform.gameObject.tag == "Enemy") {                  
-                    print("targeted: " + hit.transform.gameObject);
-                    lockedToTarget = true;
-                    lockTargetTransform = hit.transform;
-                    reticle = Instantiate(reticlePrefab);
-                    reticle.GetComponent<TargetReticle>().SetTarget(lockTargetTransform);
-                } else if(hit.transform.gameObject.tag == "NPC") {
-                    print("targeted: " + hit.transform.gameObject);
-                    lockedToTarget = true;
-                    lockTargetTransform = hit.transform;
-                    reticle = Instantiate(reticlePrefab);
+                    SetTarget(hit);
+                } else if(hit.transform.gameObject.tag == "NPC") {                    
+                    SetTarget(hit);
                     reticle.GetComponent<TargetReticle>().SetColor(Color.white);
-                    reticle.GetComponent<TargetReticle>().SetTarget(lockTargetTransform);
                 } else {
                     UnlockFromTarget();
                 }
@@ -128,12 +113,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void SetTarget(RaycastHit hit) {
+        print("targeted: " + hit.transform.gameObject);
+        lockedToTarget = true;
+        lockTargetTransform = hit.transform;
+        reticle = Instantiate(reticlePrefab);
+        reticle.GetComponent<TargetReticle>().SetTarget(lockTargetTransform);
+    }
+
 
     private void UnlockFromTarget() {
         print("unlocked target");
         lockedToTarget = false;
         lockTargetTransform = null;
-        inDialog = false;
     }
 
     private void RotatePlayer() {
@@ -157,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput() {
 
-        if(inDialog) return;
+        if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog) return;
 
         if(Input.GetKey(KeyCode.W)) {
             strafe = 1;
