@@ -8,7 +8,7 @@ public class TargetReticle : MonoBehaviour
     private Transform target;
 
     void Awake() {
-        GetComponent<SpriteRenderer>().enabled = false;
+
     }
 
     public void SetTarget(Transform targetTransform) {
