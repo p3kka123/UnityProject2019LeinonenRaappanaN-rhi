@@ -17,9 +17,7 @@ public class IntroDialog : Dialog
         DialogManager.Instance.show(this);
     }
 
-    public override void SetManager(DialogManager manager) {
-        //this.manager = manager;
-    }
+
 
     override public void NextLine() {
         print("next line");

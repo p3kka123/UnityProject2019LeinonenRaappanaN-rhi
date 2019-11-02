@@ -9,7 +9,6 @@ public class BarrelContainerDialog : Dialog
     int index;
     int choices = 0;
     string[] choiceText;
-    DialogManager manager;
     State state;
 
     bool contentsTaken;
@@ -21,10 +20,6 @@ public class BarrelContainerDialog : Dialog
         leftContents,
         contentsTaken,
         end
-    }
-
-    public override void SetManager(DialogManager manager) {
-        this.manager = manager;
     }
 
     override public void NextLine() {

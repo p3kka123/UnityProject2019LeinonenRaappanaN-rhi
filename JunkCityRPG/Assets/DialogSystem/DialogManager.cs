@@ -26,7 +26,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private Button[] buttons;
     [SerializeField]
-    private Text text;
+    private Text dialogText;
 
     Dialog dialog;
 
@@ -44,8 +44,6 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
         } else {
             _instance = this;
         }
-
-        //DontDestroyOnLoad(this);
     }
 
     public void OnPointerClick(PointerEventData eventData) {
@@ -54,7 +52,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
     }
 
     public void ST(string text) {//SetText
-        this.text.text = text;
+        this.dialogText.text = text;
     }
 
     public void endConvo() {

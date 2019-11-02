@@ -26,19 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f84ebafe2328a443af7c45205b45ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 928859543}
---- !u!114 &928859543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7742179945301073207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81fc5c1d1fa786a428620cf3849bf621, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  dialog: {fileID: 0}
 --- !u!1001 &7742179945301105195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48,7 +36,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100124, guid: a2538ec4633eb8f4b9914359ecd98841, type: 3}
       propertyPath: m_Name
-      value: silamarik
+      value: silamarik Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100124, guid: a2538ec4633eb8f4b9914359ecd98841, type: 3}
       propertyPath: m_TagString
