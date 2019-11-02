@@ -9,6 +9,10 @@ using UnityEngine.EventSystems;
 public class DialogManager : MonoBehaviour, IPointerClickHandler
 {
 
+    private static DialogManager _instance;
+
+    public static DialogManager Instance { get { return _instance; } }
+
     private bool askQ;
 
     [SerializeField]
@@ -26,8 +30,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
 
     Dialog dialog;
 
-    public void show(Dialog dialog1)
-    {
+    public void show(Dialog dialog1) {
         this.dialog = dialog1;
         this.dialog.SetManager(this);
         askQ = false;
@@ -35,8 +38,17 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
         dialog.NextLine();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
+    private void Awake() {
+        if(_instance != null && _instance != this) {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
+
+        DontDestroyOnLoad(this);
+    }
+
+    public void OnPointerClick(PointerEventData eventData) {
         if(!askQ)
             dialog.NextLine();
     }
@@ -50,19 +62,17 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
         PController.UninitiateDialog();
     }
 
-    public void Question(int amount, string[] answers)
-    {
+    public void Question(int amount,string[] answers) {
         askQ = true;
-        for (int i = 0; i < amount; i++){
+        for(int i = 0; i < amount; i++) {
             buttons[i].gameObject.SetActive(true);
             buttons[i].GetComponentInChildren<Text>().text = answers[i];
         }
     }
 
-    public void AnsQues(int ans)
-    {
+    public void AnsQues(int ans) {
         askQ = false;
-        foreach (Button button in buttons){
+        foreach(Button button in buttons) {
             button.gameObject.SetActive(false);
         }
         dialog.HandleQuestion(ans);
