@@ -15,6 +15,10 @@ public class SilamarikDialog : Dialog
     private InputField inputField;
     State state;
 
+    SlumIntro slumIntroQuest;
+    KVLIntro kvlIntroQuest;
+    GuardIntro guardIntroQuest;
+
     public enum State
     {
         greet,
@@ -97,23 +101,29 @@ public class SilamarikDialog : Dialog
                 state = State.question4;
                 break;
             case State.question4:
-                node = new DialogNode("Tell my about your family lineage.", "My parents were scholars", "I'm an orphan", "I hail from a military family.");
+                node = new DialogNode("Tell me about your family lineage.", "My parents were scholars", "I'm an orphan", "I hail from a military family.");
                 HandleNode(node);
                 break;
             case State.kvl:
                 manager.ST("Sounds to me like you might want to check out the League of the Three Wizards. It's an organisation that does magical research.");
+                kvlIntroQuest = new KVLIntro();
+                QuestManager.Instance.AddQuest(kvlIntroQuest);
                 state = State.lastline;
                 break;
             case State.slum:
                 manager.ST("I heard some people in the slums are offering work, if you're interested.");
+                slumIntroQuest = new SlumIntro();
+                QuestManager.Instance.AddQuest(slumIntroQuest);
                 state = State.lastline;
                 break;
             case State.guard:
                 manager.ST("The town guard always needs new recruits, I think you'd fit right in.");
+                guardIntroQuest = new GuardIntro();
+                QuestManager.Instance.AddQuest(guardIntroQuest);
                 state = State.lastline;
                 break;
             case State.lastline:
-                manager.ST("Well, it was fun talking to you. We'll be arriving to the port in a moment, you'd better get ready.");
+                manager.ST("Well, it was fun talking to you. We'll be arriving in just a moment, you'd better get ready.");
                 state = State.end;
                 break;
             case State.end:
