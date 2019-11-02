@@ -33,7 +33,7 @@ public class IntroDialog : Dialog
                 currentDialog++;
                 break;
             case 2:
-                DialogManager.Instance.ST("The days have been slow and you have spent them on the ships deck, watching the clouds roll by.");
+                DialogManager.Instance.ST("The days have been slow and you have spent them on the deck of the ship, watching the clouds roll by.");
                 currentDialog++;
                 break;
             case 3:
