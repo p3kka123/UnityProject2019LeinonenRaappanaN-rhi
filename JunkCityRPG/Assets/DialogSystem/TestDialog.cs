@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TestDialog : Dialog
 {
+    DialogNode node;
     string[] lines;
     int index;
     int choices = 0;
     string[] choiceText;
-    DialogManager manager;
     State state;
     SlobodansHonor slobodansHonorQuest;
 
@@ -28,11 +28,6 @@ public class TestDialog : Dialog
         givenCyanide
     }
 
-    public override void SetManager(DialogManager manager)
-    {
-        this.manager = manager;
-    }
-
     override public void NextLine()
     {
         if(questAccepted) {
@@ -44,11 +39,8 @@ public class TestDialog : Dialog
 
     private void QuestAcceptedDialog() {
         if(state == State.greetAccepted) {
-            manager.ST("Do you have the cyanide!?");
-            choiceText = new string[2];
-            choiceText[0] = "Yes, here you go.";
-            choiceText[1] = "No, sorry.";
-            manager.Question(2,choiceText);
+            node = new DialogNode("Do you have the cyanide!?", "Yes, here you go.", "No, sorry.");
+            HandleNode(node);
             state = State.end;
         } else if(state == State.giveCyanide) {
             if(slobodansHonorQuest.PlayerHasCyanide) {
@@ -79,11 +71,8 @@ public class TestDialog : Dialog
 
     private void QuestNotAcceptedDialog() {
         if(state == State.greet) {
-            manager.ST("Hey there traveller. Would you be so kind as to find me a vial of cyanide?");
-            choiceText = new string[2];
-            choiceText[0] = "Sure, I'd love to help.";
-            choiceText[1] = "Maybe later.";
-            manager.Question(2,choiceText);
+            node = new DialogNode("Hey there traveller. Would you be so kind as to find me a vial of cyanide?", "Sure, I'd love to help.", "Maybe later.");
+            HandleNode(node);
             state = State.end;
         } else if(state == State.accept) {
             manager.ST("How wonderful! Be sure to come back with the cyanide.");
