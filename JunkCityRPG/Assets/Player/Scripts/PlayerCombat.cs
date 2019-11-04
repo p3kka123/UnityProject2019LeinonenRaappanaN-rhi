@@ -7,9 +7,13 @@ public class PlayerCombat : MonoBehaviour
 
     [SerializeField]
     private GameObject rightHandAnchorPoint;
+    [SerializeField]
+    private GameObject attackHitBox;
+
 
     private void Awake() {
-        Gamemanager.Instance.PlayerRightHandAnchor = rightHandAnchorPoint;
+        Gamemanager.Instance.AttackHitBox = attackHitBox;
+        Gamemanager.Instance.PlayerRightHandAnchor = rightHandAnchorPoint;       
     }
 
     private void OnTriggerEnter(Collider other) {

@@ -1189,6 +1189,12 @@ PrefabInstance:
       propertyPath: playerRightHandWeaponAnchor
       value: 
       objectReference: {fileID: 1126184224}
+    - target: {fileID: 5908007155494465167, guid: 089050d86e660db49a899312f894615f,
+        type: 3}
+      propertyPath: fist
+      value: 
+      objectReference: {fileID: 11400000, guid: c08b2d94447bd6c46b5b741a716f37f0,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089050d86e660db49a899312f894615f, type: 3}
 --- !u!1 &1121428887

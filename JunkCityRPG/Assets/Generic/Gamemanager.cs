@@ -13,6 +13,7 @@ public class Gamemanager : MonoBehaviour
     private GameObject inventoryGrid;
     private GameObject playerRightHandAnchor;
     private GameObject inventory;
+    private GameObject attackHitBox;
 
     public GameState CurrentState { get => currentState; 
         set {
@@ -26,6 +27,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject InventoryGrid { get => inventoryGrid; set => inventoryGrid = value; }
     public GameObject PlayerRightHandAnchor { get => playerRightHandAnchor; set => playerRightHandAnchor = value; }
     public GameObject Inventory { get => inventory; set => inventory = value; }
+    public GameObject AttackHitBox { get => attackHitBox; set => attackHitBox = value; }
 
     public enum GameState
     {
@@ -53,9 +55,4 @@ public class Gamemanager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

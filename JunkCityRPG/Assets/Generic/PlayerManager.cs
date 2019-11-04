@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerManager : MonoBehaviour
@@ -19,9 +20,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject attackHitBox;
 
-    [HideInInspector]
+    //[HideInInspector]
     [SerializeField]
-    private Weapon fist;
+    private Item fist;
 
 
     // Start is called before the first frame update
@@ -40,10 +41,20 @@ public class PlayerManager : MonoBehaviour
 
 
         if(PlayerEquipment == null) {
-            playerEquipment = new Equipment();
-            
+            playerEquipment = new Equipment();    
         }
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
+
+    private void Start() {
+        Inventory.Instance.AddItemToInventory(fist);
+    }
+
+
+    private void OnSceneLoad(Scene scene,LoadSceneMode mode) {
+        attackHitBox = Gamemanager.Instance.AttackHitBox;        
+    }
+    
 
     public class Equipment
     {

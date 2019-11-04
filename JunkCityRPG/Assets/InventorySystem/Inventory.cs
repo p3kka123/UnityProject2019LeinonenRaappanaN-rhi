@@ -62,7 +62,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void RemoveItemFromInventory(Item itemToRemove) {
-        print("RemoveItem");
+        if(itemToRemove.ItemName == "Fist") return;
         if(itemToRemove.AmountInInventory == 1) 
             inventoryItems.Remove(itemToRemove);
         else
@@ -93,9 +93,8 @@ public class Inventory : MonoBehaviour
         if(cSetter != null)
             Destroy(cSetter.gameObject);
 
-        print("add menu items");
+
         foreach(Item item in inventoryItems) {
-            print("for each add menu item");
             GameObject menuItem = Instantiate(inventoryMenuItem, inventoryElementGrid.transform);
             menuItem.GetComponentInChildren<Text>().text = item.ItemName + "   " + item.AmountInInventory;
 

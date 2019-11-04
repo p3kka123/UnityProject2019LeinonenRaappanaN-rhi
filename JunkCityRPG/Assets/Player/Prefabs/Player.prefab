@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightHandAnchorPoint: {fileID: 256556517}
+  attackHitBox: {fileID: 7228733464358237927}
 --- !u!114 &1312821146277156173
 MonoBehaviour:
   m_ObjectHideFlags: 0
