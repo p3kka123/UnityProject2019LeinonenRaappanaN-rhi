@@ -47,7 +47,6 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
             _instance = this;
         }
 
-        DontDestroyOnLoad(this);
     }
 
     public void OnPointerClick(PointerEventData eventData) {

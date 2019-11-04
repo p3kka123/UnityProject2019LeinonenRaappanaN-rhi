@@ -20,7 +20,7 @@ public class Item : ScriptableObject
     [SerializeField] private string description;
 
     private void OnEnable() {
-        //amountInInventory = 0;
+        amountInInventory = 0;
     }
 
 }
