@@ -16,6 +16,12 @@ public class TestInventory : MonoBehaviour
 
         IronDagger dagger = new IronDagger();
         Inventory.Instance.AddItemToInventory(dagger);
+
+        ShortSword sword = new ShortSword();
+        Inventory.Instance.AddItemToInventory(sword);
+
+        Quarterstaff staff = new Quarterstaff();
+        Inventory.Instance.AddItemToInventory(staff);
     }
 
     // Update is called once per frame

@@ -8,7 +8,8 @@ public class Cyanide : Consumable
     public Cyanide() {
         ItemName = "Cyanide";
         Value = 100;
-        Description = "A Vial of clear liquid. Causes a swift death.";
+        Description = "A Vial of clear liquid.";
+        Effect = "Causes a swift death.";
     }
 
     public override void Consume() {

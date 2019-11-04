@@ -61,3 +61,5 @@ MonoBehaviour:
     type: 3}
   weaponDetails: {fileID: 3585616740753955705, guid: 4fce6b221b2bd3049a8c8e4062b91eed,
     type: 3}
+  consumableDetails: {fileID: 3585616740753955705, guid: 26d3abf832e315f47944b24870c556fd,
+    type: 3}
