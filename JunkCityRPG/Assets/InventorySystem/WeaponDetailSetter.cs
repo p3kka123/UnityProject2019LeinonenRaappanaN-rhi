@@ -15,6 +15,10 @@ public class WeaponDetailSetter : MonoBehaviour
     [SerializeField] TextMeshProUGUI description;
 
 
+    public string GetItemName() {
+        return itemName.text;
+    }
+
     public void SetItemName(string name) {
         itemName.text = name;
     }

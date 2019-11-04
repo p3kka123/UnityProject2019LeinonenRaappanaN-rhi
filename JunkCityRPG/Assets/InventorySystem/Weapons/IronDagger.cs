@@ -7,7 +7,7 @@ public class IronDagger : Weapon
     public IronDagger() {
         Value = 5;
         ItemName = "Iron Dagger";
-        Range = 1;
+        Range = 0.8f;
         Arc = 1;
         AttackSpeed = 5;
         Damage = 3;

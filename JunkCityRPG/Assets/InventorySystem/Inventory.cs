@@ -21,9 +21,14 @@ public class Inventory : MonoBehaviour
 
     [SerializeField]
     private GameObject weaponDetails;
+    [SerializeField]
+    private GameObject consumableDetails;
+
 
     private WeaponDetailSetter wSetter;
+    private ConsumableDetailSetter cSetter;
 
+    private GameObject curDetail;
 
     // Start is called before the first frame update
     void Awake()
@@ -77,6 +82,8 @@ public class Inventory : MonoBehaviour
 
         if(wSetter != null) 
             Destroy(wSetter.gameObject);
+        if(cSetter != null)
+            Destroy(cSetter.gameObject);
 
 
         foreach(Item item in inventoryItems) {
@@ -85,24 +92,39 @@ public class Inventory : MonoBehaviour
 
             if(item is Weapon) {
                 menuItem.GetComponent<Button>().onClick.AddListener(delegate { ShowWeaponDetail(item as Weapon); });
+            } else if(item is Consumable) {
+                menuItem.GetComponent<Button>().onClick.AddListener(delegate { ShowConsumableDetail(item as Consumable); });
             }
         }
 
     }
 
     public void ShowWeaponDetail(Weapon weapon) {        
-        if(wSetter == null) {
-            print("Setting weapon shit");
+        if(wSetter == null || wSetter.GetItemName() != weapon.ItemName) {
+            Destroy(curDetail);
             wSetter = Instantiate(weaponDetails,inventoryElementGrid.transform.root).GetComponentInChildren<WeaponDetailSetter>();
+            curDetail = wSetter.gameObject;
             wSetter.SetItemName(weapon.ItemName);
             wSetter.SetItemDamage((weapon.Damage).ToString());
             wSetter.SetItemDesc(weapon.Description);
             wSetter.SetItemSpeed((weapon.AttackSpeed).ToString());
-            wSetter.SetRange((weapon.Range).ToString());
+            wSetter.SetRange((weapon.Range).ToString().Replace(',','.'));
         } else {
             Destroy(wSetter.gameObject);
-            print("Already made");
+        }       
+    }
+
+
+    public void ShowConsumableDetail(Consumable consumable) {        
+        if(cSetter == null || cSetter.GetItemName() != consumable.ItemName) {
+            Destroy(curDetail);
+            cSetter = Instantiate(consumableDetails,inventoryElementGrid.transform.root).GetComponentInChildren<ConsumableDetailSetter>();
+            curDetail = cSetter.gameObject;
+            cSetter.SetItemName(consumable.ItemName);
+            cSetter.SetItemDesc(consumable.Description);
+            cSetter.SetItemEffect(consumable.Effect);
+        } else {
+            Destroy(cSetter.gameObject);
         }
-        
     }
 }
