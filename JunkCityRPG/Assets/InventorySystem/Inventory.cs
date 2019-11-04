@@ -29,6 +29,10 @@ public class Inventory : MonoBehaviour
     private ConsumableDetailSetter cSetter;
 
     private GameObject curDetail;
+    private GameObject equippedWeaponGO;
+
+
+    [SerializeField] GameObject playerRightHandWeaponAnchor;
 
     // Start is called before the first frame update
     void Awake()
@@ -36,11 +40,6 @@ public class Inventory : MonoBehaviour
         _instance = this;
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 
     public void AddItemToInventory(Item itemToAdd) {
         if(ContainsItem(itemToAdd.ItemName)) {
@@ -55,7 +54,8 @@ public class Inventory : MonoBehaviour
     }
 
     public void RemoveItemFromInventory(Item itemToRemove) {
-        if(itemToRemove.AmountInInventory == 0) 
+        print("RemoveItem");
+        if(itemToRemove.AmountInInventory == 1) 
             inventoryItems.Remove(itemToRemove);
         else
             itemToRemove.AmountInInventory--;
@@ -99,11 +99,29 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public void EquipWeapon(Weapon weapon) {
+        PlayerManager.Instance.PlayerEquipment.RightWeapon = weapon;
+        PlayerManager.Instance.AttackHitBox.transform.localScale = new Vector3(weapon.Arc, 0.8f, weapon.Range);
+        if(!(weapon is Fist)) {
+            if(equippedWeaponGO != null) {
+                Destroy(equippedWeaponGO);
+            }
+            equippedWeaponGO = Instantiate(weapon.WeaponGO);
+            equippedWeaponGO.transform.SetParent(playerRightHandWeaponAnchor.transform);
+            equippedWeaponGO.transform.localPosition = Vector3.zero;
+            equippedWeaponGO.transform.localRotation = Quaternion.identity;
+        }
+            
+
+        print("Equipped " + weapon);
+    }
+
     public void ShowWeaponDetail(Weapon weapon) {        
         if(wSetter == null || wSetter.GetItemName() != weapon.ItemName) {
             Destroy(curDetail);
             wSetter = Instantiate(weaponDetails,inventoryElementGrid.transform.root).GetComponentInChildren<WeaponDetailSetter>();
             curDetail = wSetter.gameObject;
+            wSetter.DetailItem = weapon;
             wSetter.SetItemName(weapon.ItemName);
             wSetter.SetItemDamage((weapon.Damage).ToString());
             wSetter.SetItemDesc(weapon.Description);
@@ -119,6 +137,7 @@ public class Inventory : MonoBehaviour
         if(cSetter == null || cSetter.GetItemName() != consumable.ItemName) {
             Destroy(curDetail);
             cSetter = Instantiate(consumableDetails,inventoryElementGrid.transform.root).GetComponentInChildren<ConsumableDetailSetter>();
+            cSetter.DetailItem = consumable;
             curDetail = cSetter.gameObject;
             cSetter.SetItemName(consumable.ItemName);
             cSetter.SetItemDesc(consumable.Description);

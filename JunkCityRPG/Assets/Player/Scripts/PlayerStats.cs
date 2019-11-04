@@ -8,57 +8,38 @@ public class PlayerStats
     private int statPoints;
     private int exp;
     private int level;
-    private float currHealth;
-    private float currMana;
-    private float health;
-    private float mana;
-    private float strength;
-    private float dexterity;
-    private float intelligence;
-    private float wisdom;
-    private float constitution;
-    private float charisma;
+    private int currHealth;
+    private int currMana;
+    private int health;
+    private int mana;
+    private int strength;
+    private int dexterity;
+    private int intelligence;
+    private int wisdom;
+    private int constitution;
+    private int charisma;
 
-    public float Dexterity { get => dexterity; set => dexterity = value; }
-    public float Intelligence { get => intelligence; set => intelligence = value; }
-    public float Wisdom { get => wisdom; set => wisdom = value; }
-    public float Constitution { get => constitution; set => constitution = value; }
-    public float Charisma { get => charisma; set => charisma = value; }
+    public int Dexterity { get => dexterity; set => dexterity = value; }
+    public int Intelligence { get => intelligence; set => intelligence = value; }
+    public int Wisdom { get => wisdom; set => wisdom = value; }
+    public int Constitution { get => constitution; set => constitution = value; }
+    public int Charisma { get => charisma; set => charisma = value; }
     public int Level { get => level; set => level = value; }
     public int Exp { get => exp; set => exp = value; }
     public string Name { get => name; set => name = value; }
-    public float CurrHealth { get => currHealth; set => currHealth = value; }
-    public float CurrMana { get => currMana; set => currMana = value; }
+    public int CurrHealth { get => currHealth; set => currHealth = value; }
+    public int CurrMana { get => currMana; set => currMana = value; }
     public int StatPoints { get => statPoints; set => statPoints = value; }
+    public int Health { get => health; set => health = value; }
+    public int Mana { get => mana; set => mana = value; }
+    public int Strength { get => strength; set => strength = value; }
 
-    public PlayerStats(float _health, float _mana, float _strength) {
-        health = _health;
-        mana = _mana;
-        strength = _strength;
-    }
-    public void SetHealth(float _health) {
-        health = _health;
-    }
-
-    public float GetHealth() {
-        return health;
+    public PlayerStats(int _health,int _mana,int _strength) {
+        Health = _health;
+        Mana = _mana;
+        Strength = _strength;
     }
 
-    public void SetMana(float _mana) {
-        mana = _mana;
-    }
-
-    public float GetMana() {
-        return mana;
-    }
-
-    public void SetStrength(float _stren) {
-        strength = _stren;
-    }
-
-    public float GetStrength() {
-        return strength;
-    }
 
     public void GetExp(int _exp)
     {

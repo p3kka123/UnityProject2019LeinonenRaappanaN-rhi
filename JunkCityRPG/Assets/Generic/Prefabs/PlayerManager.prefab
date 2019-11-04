@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093b170d03b9aa542932a280e6e323f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackHitBox: {fileID: 0}
 --- !u!114 &6339337178372972143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,3 +64,4 @@ MonoBehaviour:
     type: 3}
   consumableDetails: {fileID: 3585616740753955705, guid: 26d3abf832e315f47944b24870c556fd,
     type: 3}
+  playerRightHandWeaponAnchor: {fileID: 0}

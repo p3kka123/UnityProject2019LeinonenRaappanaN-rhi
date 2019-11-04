@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
+
+    
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Enemy") {
-            //print(other.gameObject);
-            other.gameObject.GetComponent<EnemyBase>().TakeDamage(PlayerManager.Instance.Stats.GetStrength());
+            DamageEnemy(other.gameObject);   
         }
+    }
+
+    private void DamageEnemy(GameObject target) {
+        target.GetComponent<EnemyBase>().TakeDamage(CalculateDamage());
+        print("Hit enemy: " + target + " with weapon: " + PlayerManager.Instance.PlayerEquipment.RightWeapon);
+    }
+
+    private int CalculateDamage() {
+        PlayerManager mg = PlayerManager.Instance;
+        Weapon weapon = mg.PlayerEquipment.RightWeapon as Weapon;
+
+        return mg.Stats.Strength + weapon.Damage;
     }
 }

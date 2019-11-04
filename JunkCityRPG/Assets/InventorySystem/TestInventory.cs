@@ -5,8 +5,9 @@ using UnityEngine;
 public class TestInventory : MonoBehaviour
 {
 
-
-
+    public GameObject swordGO;
+    public GameObject quarterstaffGO;
+    public GameObject daggerGO;
 
     // Start is called before the first frame update
     void Start()
@@ -14,13 +15,13 @@ public class TestInventory : MonoBehaviour
         Cyanide cyanide = new Cyanide();
         Inventory.Instance.AddItemToInventory(cyanide);
 
-        IronDagger dagger = new IronDagger();
+        IronDagger dagger = new IronDagger(daggerGO);
         Inventory.Instance.AddItemToInventory(dagger);
 
-        ShortSword sword = new ShortSword();
+        ShortSword sword = new ShortSword(swordGO);
         Inventory.Instance.AddItemToInventory(sword);
 
-        Quarterstaff staff = new Quarterstaff();
+        Quarterstaff staff = new Quarterstaff(quarterstaffGO);
         Inventory.Instance.AddItemToInventory(staff);
     }
 
