@@ -10,7 +10,7 @@ public class QuestManager : MonoBehaviour
     public static QuestManager Instance { get { return _instance; } }
 
 
-    private List<Quest> activeQuests = new List<Quest>();
+    public List<Quest> activeQuests = new List<Quest>();
 
     private List<Quest> completedQuests = new List<Quest>();
 
