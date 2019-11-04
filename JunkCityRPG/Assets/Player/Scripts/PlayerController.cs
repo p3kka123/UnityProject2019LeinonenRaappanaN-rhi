@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject reticlePrefab;
 
+    private bool isDodge;
+
     [SerializeField]
     private GameObject inventory;
 
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
-    
+
 
     // Start is called before the first frame update
     void Awake()
@@ -59,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveVector = new Vector3(forward,0,strafe);
 
-        if(moveVector != Vector3.zero) 
+        if(moveVector != Vector3.zero)
             animator.SetBool("Moving", true);
         else
             animator.SetBool("Moving",false);
@@ -77,6 +79,8 @@ public class PlayerController : MonoBehaviour
         if(!lockTargetTransform) return;
 
         if(Input.GetKeyDown(KeyCode.E) && lockTargetTransform.gameObject.tag == "NPC" && lockTargetTransform.gameObject.GetComponent<Dialog>() != null) {
+            forward = 0;
+            strafe = 0;
             lockTargetTransform.gameObject.GetComponent<Interactable>().Interact();
             Gamemanager.Instance.CurrentState = Gamemanager.GameState.Dialog;
             Camera.main.GetComponent<CameraFollow>().SetGOToFollow(lockTargetTransform.gameObject);
@@ -105,9 +109,9 @@ public class PlayerController : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(ray,out hit)) {
                 // the object identified by hit.transform was clicked
-                if(hit.transform.gameObject.tag == "Enemy") {                  
+                if(hit.transform.gameObject.tag == "Enemy") {
                     SetTarget(hit);
-                } else if(hit.transform.gameObject.tag == "NPC") {                    
+                } else if(hit.transform.gameObject.tag == "NPC") {
                     SetTarget(hit);
                     reticle.GetComponent<TargetReticle>().SetColor(Color.white);
                 } else {
@@ -147,15 +151,21 @@ public class PlayerController : MonoBehaviour
             transform.rotation = rotation;
             return;
         }
-            
+
 
         if(facingRotation != Vector3.zero)
             transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(facingRotation),0.15F);
     }
 
+    private void removeDodge()
+    {
+        isDodge = false;
+    }
+
     private void GetInput() {
 
         if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog) return;
+        if(isDodge) return;
 
 
         if(Input.GetKeyDown(KeyCode.I)) {
@@ -189,6 +199,16 @@ public class PlayerController : MonoBehaviour
         } else {
             forward *= playerSpeed;
             strafe *= playerSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+            if (forward != 0 ||strafe != 0) {
+                {
+                    isDodge = true;
+                    Invoke("removeDodge", 1f);
+                    forward *= 2;
+                    strafe *= 2;
+                }
         }
 
         if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Menu) return;

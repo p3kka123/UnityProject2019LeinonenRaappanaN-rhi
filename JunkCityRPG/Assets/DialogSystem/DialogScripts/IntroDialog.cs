@@ -11,12 +11,10 @@ public class IntroDialog : Dialog
     private int currentDialog = 0;
 
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartDialog()
     {
         DialogManager.Instance.show(this);
     }
-
 
 
     override public void NextLine() {
