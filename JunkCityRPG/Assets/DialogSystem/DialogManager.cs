@@ -30,6 +30,8 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
 
     Dialog dialog;
 
+    
+
     public void show(Dialog dialog1) {
         this.dialog = dialog1;
         this.dialog.SetManager(this);
@@ -44,6 +46,8 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
         } else {
             _instance = this;
         }
+
+        DontDestroyOnLoad(this);
     }
 
     public void OnPointerClick(PointerEventData eventData) {

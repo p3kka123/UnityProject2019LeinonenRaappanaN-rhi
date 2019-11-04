@@ -86,7 +86,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGO: {fileID: 1312821145018494063}
   attackHitBox: {fileID: 3365748484482015380}
-  mainCamera: {fileID: 0}
   reticlePrefab: {fileID: 1966032649642344190, guid: ed6c6a906ce61d74780d4062a326b41d,
     type: 3}
   inventory: {fileID: 0}
@@ -115,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2984401854225570900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6238432, y: 2.4078937, z: 0.7609234}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312821145018658895}
@@ -265,11 +264,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
       propertyPath: m_LocalRotation.x

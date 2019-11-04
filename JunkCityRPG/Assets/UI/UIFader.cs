@@ -48,7 +48,7 @@ public class UIFader : MonoBehaviour
             uiElement2.gameObject.SetActive(true);
             FadeIn(uiElement2);
         }
-        print("done");
+
     }
     
 }

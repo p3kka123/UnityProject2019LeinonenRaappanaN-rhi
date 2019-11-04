@@ -5,24 +5,17 @@ using UnityEngine;
 public class TestInventory : MonoBehaviour
 {
 
-    public GameObject swordGO;
-    public GameObject quarterstaffGO;
-    public GameObject daggerGO;
+
+
+
+    public List<Item> items;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cyanide cyanide = new Cyanide();
-        Inventory.Instance.AddItemToInventory(cyanide);
-
-        IronDagger dagger = new IronDagger(daggerGO);
-        Inventory.Instance.AddItemToInventory(dagger);
-
-        ShortSword sword = new ShortSword(swordGO);
-        Inventory.Instance.AddItemToInventory(sword);
-
-        Quarterstaff staff = new Quarterstaff(quarterstaffGO);
-        Inventory.Instance.AddItemToInventory(staff);
+        foreach(Item item in items) {
+            Inventory.Instance.AddItemToInventory(item);
+        }
     }
 
     // Update is called once per frame

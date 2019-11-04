@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c484a121499b148a53040fc677f9d5, type: 3}
+  m_Name: Quarterstaff
+  m_EditorClassIdentifier: 
+  value: 5
+  itemName: Quarterstaff
+  description: A long stout staff made from wood. Favored by travellers.
+  weaponGO: {fileID: 4303278736647740313, guid: 5fc7fbe6d02d76d478046134b0374425,
+    type: 3}
+  range: 2
+  arc: 0.6
+  attackSpeed: 3
+  damage: 3
+  twoHanded: 1

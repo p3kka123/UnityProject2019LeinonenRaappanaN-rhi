@@ -961,10 +961,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46a93251c90e2544bb4c93f22bd2f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordGO: {fileID: 163242, guid: 857270e40bfbfaf4da7114f4593562e0, type: 3}
-  quarterstaffGO: {fileID: 4303278736647740313, guid: 5fc7fbe6d02d76d478046134b0374425,
-    type: 3}
-  daggerGO: {fileID: 1973516734266296, guid: 1dbcba7e01a87f746a5bc48e93e0045a, type: 3}
+  items:
+  - {fileID: 11400000, guid: 6a95ec61405a9794cbee38ed0c924e06, type: 2}
+  - {fileID: 11400000, guid: a586b3f19c6678d408f68a980e0d4fce, type: 2}
+  - {fileID: 11400000, guid: 31298343e5d09484c8ef9aa2e79b2c41, type: 2}
+  - {fileID: 11400000, guid: 6c0b5fdff33423446b232430c3b5d8c8, type: 2}
 --- !u!1001 &1620915985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1471,6 +1472,12 @@ PrefabInstance:
       propertyPath: attackHitBox
       value: 
       objectReference: {fileID: 1843387456}
+    - target: {fileID: 5908007155494465167, guid: 089050d86e660db49a899312f894615f,
+        type: 3}
+      propertyPath: fist
+      value: 
+      objectReference: {fileID: 11400000, guid: c08b2d94447bd6c46b5b741a716f37f0,
+        type: 2}
     - target: {fileID: 6339337178372972143, guid: 089050d86e660db49a899312f894615f,
         type: 3}
       propertyPath: inventoryElementGrid

@@ -102,15 +102,15 @@ public class Inventory : MonoBehaviour
     public void EquipWeapon(Weapon weapon) {
         PlayerManager.Instance.PlayerEquipment.RightWeapon = weapon;
         PlayerManager.Instance.AttackHitBox.transform.localScale = new Vector3(weapon.Arc, 0.8f, weapon.Range);
-        if(!(weapon is Fist)) {
-            if(equippedWeaponGO != null) {
-                Destroy(equippedWeaponGO);
-            }
-            equippedWeaponGO = Instantiate(weapon.WeaponGO);
-            equippedWeaponGO.transform.SetParent(playerRightHandWeaponAnchor.transform);
-            equippedWeaponGO.transform.localPosition = Vector3.zero;
-            equippedWeaponGO.transform.localRotation = Quaternion.identity;
+
+        if(equippedWeaponGO != null) {
+            Destroy(equippedWeaponGO);
         }
+        equippedWeaponGO = Instantiate(weapon.WeaponGO);
+        equippedWeaponGO.transform.SetParent(playerRightHandWeaponAnchor.transform);
+        equippedWeaponGO.transform.localPosition = Vector3.zero;
+        equippedWeaponGO.transform.localRotation = Quaternion.identity;
+        
             
 
         print("Equipped " + weapon);
