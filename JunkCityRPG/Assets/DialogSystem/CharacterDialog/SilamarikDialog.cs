@@ -123,7 +123,7 @@ public class SilamarikDialog : Dialog
                 manager.ST("The town guard always needs new recruits, I think you'd fit right in.");
                 guardIntroQuest = new GuardIntro();
                 QuestManager.Instance.AddQuest(guardIntroQuest);
-                Inventory.Instance.AddItemToInventory(starterWeapons[3]);
+                Inventory.Instance.AddItemToInventory(starterWeapons[2]);
                 state = State.lastline;
                 break;
             case State.lastline:

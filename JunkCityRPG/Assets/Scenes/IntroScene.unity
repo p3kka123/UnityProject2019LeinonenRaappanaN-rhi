@@ -748,7 +748,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   inputField: {fileID: 1558504345}
-  starterWeapons: []
+  starterWeapons:
+  - {fileID: 11400000, guid: a586b3f19c6678d408f68a980e0d4fce, type: 2}
+  - {fileID: 11400000, guid: 6a95ec61405a9794cbee38ed0c924e06, type: 2}
+  - {fileID: 11400000, guid: 31298343e5d09484c8ef9aa2e79b2c41, type: 2}
 --- !u!1 &925303827 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 79bcf68dbff060c43af449d1bd66637b,
@@ -929,11 +932,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3793897275948055343, guid: ce3c35055602fc34989ca2d938289afa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3793897275948055331, guid: ce3c35055602fc34989ca2d938289afa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1040,14 +1038,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 436854867, guid: ce3c35055602fc34989ca2d938289afa, type: 3}
-      propertyPath: PController
-      value: 
-      objectReference: {fileID: 117070388}
-    - target: {fileID: 846500134, guid: ce3c35055602fc34989ca2d938289afa, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1446644410, guid: ce3c35055602fc34989ca2d938289afa, type: 3}
       propertyPath: PController
       value: 
       objectReference: {fileID: 117070388}
@@ -2450,6 +2440,11 @@ PrefabInstance:
       propertyPath: GOToFollow
       value: 
       objectReference: {fileID: 117070386}
+    - target: {fileID: 1680139823835288745, guid: 06686357483026d4685a533cd200ead0,
+        type: 3}
+      propertyPath: indoorsCamera
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06686357483026d4685a533cd200ead0, type: 3}
 --- !u!1001 &7342053847856886772

@@ -28,7 +28,14 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private Text dialogText;
 
+
+    [SerializeField]
+    private GameObject inventoryGrid;
+    [SerializeField]
+    private GameObject inventoryGO;
+
     Dialog dialog;
+
 
     
 
@@ -46,7 +53,12 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
         } else {
             _instance = this;
         }
+        Gamemanager.Instance.InventoryGrid = inventoryGrid;
+        Gamemanager.Instance.Inventory = inventoryGO;
+    }
 
+    private void Start() {
+        PController = Gamemanager.Instance.Player.GetComponent<PlayerController>();
     }
 
     public void OnPointerClick(PointerEventData eventData) {

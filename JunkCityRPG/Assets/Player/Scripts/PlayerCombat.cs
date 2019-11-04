@@ -5,8 +5,13 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
 
+    [SerializeField]
+    private GameObject rightHandAnchorPoint;
 
-    
+    private void Awake() {
+        Gamemanager.Instance.PlayerRightHandAnchor = rightHandAnchorPoint;
+    }
+
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Enemy") {
             DamageEnemy(other.gameObject);   
