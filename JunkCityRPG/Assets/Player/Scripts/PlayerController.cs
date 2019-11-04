@@ -202,11 +202,13 @@ public class PlayerController : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.Space))
-        {
-            isDodge = true;
-            Invoke("removeDodge", 1f);
-            forward *= 2;
-            strafe *= 2;
+            if (forward != 0 ||strafe != 0) {
+                {
+                    isDodge = true;
+                    Invoke("removeDodge", 1f);
+                    forward *= 2;
+                    strafe *= 2;
+                }
         }
 
         if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Menu) return;
