@@ -126,6 +126,7 @@ public class SilamarikDialog : Dialog
                 break;
             case State.end:
                 manager.endConvo();
+                StartCoroutine(SceneFader.Instance.FadeAndLoadScene(SceneFader.FadeDirection.In, "Port"));
                 state = State.greet;
                 break;
                 

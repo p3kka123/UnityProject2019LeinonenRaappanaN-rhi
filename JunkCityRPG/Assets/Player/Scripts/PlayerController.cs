@@ -16,10 +16,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject reticlePrefab;
 
+    [SerializeField]
+    private GameObject inventory;
+
     private Transform lockTargetTransform;
     private bool lockedToTarget;
     private GameObject reticle;
 
+    [SerializeField]
     private float playerSpeed = 10f;
     private float playerDiagonal;
     private float strafe;
@@ -88,6 +92,8 @@ public class PlayerController : MonoBehaviour
 
     private void TargetObject() {
 
+        if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Menu) return;
+
         if(lockTargetTransform == null) {
             Destroy(reticle);
             lockedToTarget = false;
@@ -151,6 +157,16 @@ public class PlayerController : MonoBehaviour
 
         if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog) return;
 
+
+        if(Input.GetKeyDown(KeyCode.I)) {
+            inventory.SetActive(!inventory.activeSelf);
+            Inventory.Instance.OpenInventory();
+            if(inventory.activeSelf)
+                Gamemanager.Instance.CurrentState = Gamemanager.GameState.Menu;
+            else
+                Gamemanager.Instance.CurrentState = Gamemanager.Instance.LastState;
+        }
+
         if(Input.GetKey(KeyCode.W)) {
             strafe = 1;
         } else if(Input.GetKey(KeyCode.S)) {
@@ -174,6 +190,8 @@ public class PlayerController : MonoBehaviour
             forward *= playerSpeed;
             strafe *= playerSpeed;
         }
+
+        if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Menu) return;
 
         if(Input.GetMouseButtonDown(0)) {
             animator.SetTrigger("Attack");
