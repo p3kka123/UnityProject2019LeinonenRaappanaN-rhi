@@ -59,6 +59,8 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   reticlePrefab: {fileID: 1966032649642344190, guid: ed6c6a906ce61d74780d4062a326b41d,
     type: 3}
+  inventory: {fileID: 0}
+  playerSpeed: 10
 --- !u!1 &2984401854225570900
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicBanditBlend
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -252,10 +258,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: eef7cb24a513b0b4cab3d620549ce38e, type: 2}
-    - target: {fileID: 100008, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
 --- !u!1 &1312821145018494063 stripped

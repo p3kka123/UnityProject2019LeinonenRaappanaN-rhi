@@ -25,7 +25,7 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-      ScrollCamera();
+        ScrollCamera();
 
         offset = Mathf.Clamp(offset, 4, 20);
 
@@ -35,7 +35,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     private void ScrollCamera() {
-        if(indoorsCamera) return;
+        if(indoorsCamera || Gamemanager.Instance.CurrentState == Gamemanager.GameState.Menu) return;
 
         float mouseInput = -Input.mouseScrollDelta.y * zoomspeed;
 

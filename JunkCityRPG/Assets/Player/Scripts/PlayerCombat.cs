@@ -11,7 +11,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Enemy") {
-            print(other.gameObject);
+            //print(other.gameObject);
             other.gameObject.GetComponent<EnemyBase>().TakeDamage(PlayerManager.Instance.Stats.GetStrength());
         }
     }
