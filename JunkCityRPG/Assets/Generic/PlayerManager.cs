@@ -5,13 +5,19 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
 
-   
-
     private static PlayerManager _instance;
     public static PlayerManager Instance { get { return _instance; } }
 
     private PlayerStats stats;
     public PlayerStats Stats { get => stats; set => stats = value; }
+    public Equipment PlayerEquipment { get => playerEquipment; set => playerEquipment = value; }
+    public GameObject AttackHitBox { get => attackHitBox; set => attackHitBox = value; }
+
+    private Equipment playerEquipment;
+
+    [SerializeField]
+    private GameObject attackHitBox;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -26,11 +32,36 @@ public class PlayerManager : MonoBehaviour
         if(stats == null) {
             stats = new PlayerStats(10,10,10);
         }
+
+        if(PlayerEquipment == null) {
+            playerEquipment = new Equipment();
+            Inventory.Instance.EquipWeapon(new Fist());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public class Equipment
     {
-        
+        private Item head;
+        private Item body;
+        private Item legs;
+        private Item feet;
+        private Item hands;
+        private Item leftHand;
+        private Item rightWeapon;
+        private Item amulet;
+        private Item ring1;
+        private Item ring2;
+
+        public Item Head { get => head; set => head = value; }
+        public Item Body { get => body; set => body = value; }
+        public Item Legs { get => legs; set => legs = value; }
+        public Item Hands { get => hands; set => hands = value; }
+        public Item LeftHand { get => leftHand; set => leftHand = value; }
+        public Item RightWeapon { get => rightWeapon; set => rightWeapon = value; }
+        public Item Amulet { get => amulet; set => amulet = value; }
+        public Item Ring1 { get => ring1; set => ring1 = value; }
+        public Item Ring2 { get => ring2; set => ring2 = value; }
+        public Item Feet { get => feet; set => feet = value; }
     }
+
 }

@@ -11,7 +11,7 @@ public class StatPanel : MonoBehaviour
     {
         if(text == null)text = GetComponentInChildren<TextMeshProUGUI>();
         text.SetText("Name: \t" + PlayerManager.Instance.Stats.Name
-            + "\nStrength: \t" + PlayerManager.Instance.Stats.GetStrength().ToString()
+            + "\nStrength: \t" + PlayerManager.Instance.Stats.Strength.ToString()
             + "\nLevel: \t" + PlayerManager.Instance.Stats.Level.ToString());
     }
 

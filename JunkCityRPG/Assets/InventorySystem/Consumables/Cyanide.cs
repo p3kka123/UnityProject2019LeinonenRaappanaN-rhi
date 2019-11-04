@@ -13,6 +13,6 @@ public class Cyanide : Consumable
     }
 
     public override void Consume() {
-        PlayerManager.Instance.Stats.SetHealth(PlayerManager.Instance.Stats.CurrHealth - 1000);
+        PlayerManager.Instance.Stats.Health = PlayerManager.Instance.Stats.CurrHealth - 1000;
     }
 }

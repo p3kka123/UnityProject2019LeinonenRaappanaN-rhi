@@ -5,23 +5,26 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class WeaponDetailSetter : MonoBehaviour
+public class WeaponDetailSetter : ItemDetailSetter
 {
 
-    [SerializeField] TextMeshProUGUI itemName;
-    [SerializeField] TextMeshProUGUI damage;
-    [SerializeField] TextMeshProUGUI range;
-    [SerializeField] TextMeshProUGUI attackSpeed;
-    [SerializeField] TextMeshProUGUI description;
+    [SerializeField] private TextMeshProUGUI damage;
+    [SerializeField] private TextMeshProUGUI range;
+    [SerializeField] private TextMeshProUGUI attackSpeed;
+
+    [SerializeField] private Button equipButton;
 
 
-    public string GetItemName() {
-        return itemName.text;
+    public void Awake() {
+        discardButton.onClick.AddListener(delegate { DiscardItem("testo"); });
+        equipButton.onClick.AddListener(delegate { EquipThisWeapon(DetailItem as Weapon); });
+        print(GetComponentInChildren<TextMeshProUGUI>());
     }
 
-    public void SetItemName(string name) {
-        itemName.text = name;
+    public void EquipThisWeapon(Weapon weapon) {
+        Inventory.Instance.EquipWeapon(weapon);
     }
+
     public void SetItemDamage(string dmg) {
         damage.text += " " + dmg;
     }
@@ -31,8 +34,8 @@ public class WeaponDetailSetter : MonoBehaviour
     public void SetItemSpeed(string speed) {
         attackSpeed.text += " " + speed;
     }
-    public void SetItemDesc(string desc) {
-        description.text = desc;
-    }
+
+
+
 
 }

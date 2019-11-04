@@ -2,26 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
-public class ConsumableDetailSetter : MonoBehaviour
+public class ConsumableDetailSetter : ItemDetailSetter
 {
 
-    [SerializeField] TextMeshProUGUI itemName;
     [SerializeField] TextMeshProUGUI effect;
-    [SerializeField] TextMeshProUGUI description;
-
-    public void SetItemName(string _name) {
-        itemName.text = _name;
-    }
-
-    public string GetItemName() {
-        return itemName.text;
-    }
 
     public void SetItemEffect(string _effect) {
         effect.text += " " + _effect;
-    }
-    public void SetItemDesc(string desc) {
-        description.text = desc;
     }
 }
