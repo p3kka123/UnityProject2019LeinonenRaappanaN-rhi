@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject reticlePrefab;
 
+    private bool isDodge;
+
     private Transform lockTargetTransform;
     private bool lockedToTarget;
     private GameObject reticle;
@@ -147,9 +149,15 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(facingRotation),0.15F);
     }
 
+    private void removeDodge()
+    {
+        isDodge = false;
+    }
+
     private void GetInput() {
 
         if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog) return;
+        if(isDodge) return;
 
         if(Input.GetKey(KeyCode.W)) {
             strafe = 1;
@@ -173,6 +181,14 @@ public class PlayerController : MonoBehaviour
         } else {
             forward *= playerSpeed;
             strafe *= playerSpeed;
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            isDodge = true;
+            Invoke("removeDodge", 1f);
+            forward *= 2;
+            strafe *= 2;
         }
 
         if(Input.GetMouseButtonDown(0)) {
