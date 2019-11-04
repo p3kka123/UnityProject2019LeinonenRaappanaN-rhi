@@ -56,3 +56,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7af1928827a85409680c71116c7869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryElementGrid: {fileID: 0}
+  inventoryMenuItem: {fileID: 1115001938745088343, guid: 899f3527e6424f64bbfd5d8afeb9d19a,
+    type: 3}
+  weaponDetails: {fileID: 3585616740753955705, guid: 4fce6b221b2bd3049a8c8e4062b91eed,
+    type: 3}
