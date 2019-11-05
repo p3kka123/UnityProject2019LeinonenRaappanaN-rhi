@@ -62,7 +62,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        if(!askQ)
+        if(!askQ && dialog != null)
             dialog.NextLine();
     }
 
@@ -72,6 +72,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
 
     public void endConvo() {
         image.gameObject.SetActive(false);
+        dialog = null;
         if(PController != null)
             PController.UninitiateDialog();
     }
