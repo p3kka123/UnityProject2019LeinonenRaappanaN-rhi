@@ -62,6 +62,7 @@ public class SilamarikDialog : Dialog
         }
         if (kvl + slum + guard == 4)
             checkFactionQuest();
+        NextLine();
     }
 
     public void checkFactionQuest()

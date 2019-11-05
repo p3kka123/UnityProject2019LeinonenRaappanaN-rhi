@@ -92,7 +92,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
             button.gameObject.SetActive(false);
         }
         dialog.HandleQuestion(ans);
-        dialog.NextLine();
+        //dialog.NextLine();
     }
 
 }

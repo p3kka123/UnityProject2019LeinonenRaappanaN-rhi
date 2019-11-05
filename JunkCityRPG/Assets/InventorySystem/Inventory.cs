@@ -100,7 +100,7 @@ public class Inventory : MonoBehaviour
 
             if(item is Weapon) {
                 menuItem.GetComponent<Button>().onClick.AddListener(delegate { ShowWeaponDetail(item as Weapon); });
-            } else if(item is Consumable) {
+            } else if(item is Consumable) {//bugin
                 menuItem.GetComponent<Button>().onClick.AddListener(delegate { ShowConsumableDetail(item as Consumable); });
             }
         }

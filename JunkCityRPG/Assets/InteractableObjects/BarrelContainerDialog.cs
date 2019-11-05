@@ -61,5 +61,6 @@ public class BarrelContainerDialog : Dialog
         } else {
             state = State.leftContents;
         }
+        NextLine();
     }
 }

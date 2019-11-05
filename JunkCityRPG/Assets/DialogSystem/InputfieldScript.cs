@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class InputfieldScript : MonoBehaviour
 {
-    [SerializeField]
     private InputField mainInputField;
 
-    private void Start()
+    private void OnEnable()
     {
+        mainInputField = GetComponent<InputField>();
         mainInputField.characterLimit = 16;
+        //mainInputField.Select();
+        mainInputField.ActivateInputField();
     }
-
 }
