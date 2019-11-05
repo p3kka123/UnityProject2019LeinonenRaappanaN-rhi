@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackHitBox: {fileID: 0}
+  fist: {fileID: 11400000, guid: c08b2d94447bd6c46b5b741a716f37f0, type: 2}
 --- !u!114 &6339337178372972143
 MonoBehaviour:
   m_ObjectHideFlags: 0
