@@ -15,7 +15,6 @@ public class Inventory : MonoBehaviour
     private List<Item> inventoryItems = new List<Item>();
     
 
-    [SerializeField]
     private GameObject inventoryElementGrid;
     [SerializeField]
     private GameObject inventoryMenuItem;
@@ -32,8 +31,7 @@ public class Inventory : MonoBehaviour
     private GameObject curDetail;
     private GameObject equippedWeaponGO;
 
-
-    [SerializeField] GameObject playerRightHandWeaponAnchor;
+    GameObject playerRightHandWeaponAnchor;
 
     // Start is called before the first frame update
     void Awake()

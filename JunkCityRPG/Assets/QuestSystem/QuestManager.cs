@@ -52,6 +52,7 @@ public class QuestManager : MonoBehaviour
 
     public void AddQuest(Quest quest) {
         activeQuests.Add(quest);
+        Gamemanager.Instance.DisplayNotification("New quest: " + quest.GetQuestName());
     }
 
     public void CompleteQuest(Quest quest) {

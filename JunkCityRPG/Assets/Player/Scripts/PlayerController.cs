@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject attackHitBox;
 
-    [SerializeField]
     private Camera mainCamera;
 
     [SerializeField]
@@ -18,7 +17,6 @@ public class PlayerController : MonoBehaviour
 
     private bool isDodge;
 
-    [SerializeField]
     private GameObject inventory;
 
     private Transform lockTargetTransform;
@@ -46,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start() {
         inventory = Gamemanager.Instance.Inventory;
+        Transform spawnPoint = Gamemanager.Instance.GetPlayerSpawnPosition();
+        transform.SetPositionAndRotation(spawnPoint.transform.position, spawnPoint.transform.rotation);
     }
 
     // Update is called once per frame
@@ -211,9 +211,9 @@ public class PlayerController : MonoBehaviour
             if (forward != 0 ||strafe != 0) {
                 {
                     isDodge = true;
-                    Invoke("removeDodge", 1f);
-                    forward *= 2;
-                    strafe *= 2;
+                    Invoke("removeDodge", 0.4f);
+                    forward *= 1.5f;
+                    strafe *= 1.5f;
                 }
         }
 
