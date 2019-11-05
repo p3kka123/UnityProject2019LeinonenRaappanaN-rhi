@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         }
         if(!lockTargetTransform) return;
 
-        if(Input.GetKeyDown(KeyCode.E) && lockTargetTransform.gameObject.tag == "NPC" && lockTargetTransform.gameObject.GetComponent<Dialog>() != null) {
+        if(Input.GetKeyDown(KeyCode.E) && lockTargetTransform.gameObject.tag == "NPC" && lockTargetTransform.gameObject.GetComponent<Dialog>() != null && Gamemanager.Instance.CurrentState != Gamemanager.GameState.Dialog) {
             forward = 0;
             strafe = 0;
             lockTargetTransform.gameObject.GetComponent<Interactable>().Interact();
