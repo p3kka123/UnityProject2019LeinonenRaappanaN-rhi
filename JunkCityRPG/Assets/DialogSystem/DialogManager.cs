@@ -58,7 +58,8 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
     }
 
     private void Start() {
-        PController = Gamemanager.Instance.Player.GetComponent<PlayerController>();
+        if(Gamemanager.Instance.Player != null)
+            PController = Gamemanager.Instance.Player.GetComponent<PlayerController>();
     }
 
     public void OnPointerClick(PointerEventData eventData) {
