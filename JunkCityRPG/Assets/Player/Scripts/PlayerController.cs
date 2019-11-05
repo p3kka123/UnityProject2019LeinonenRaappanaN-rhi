@@ -40,6 +40,12 @@ public class PlayerController : MonoBehaviour
     {
         playerDiagonal = playerSpeed / Mathf.Sqrt(2);
         animator = GetComponent<Animator>();
+        mainCamera = Camera.main;
+        Gamemanager.Instance.Player = gameObject;
+    }
+
+    private void Start() {
+        inventory = Gamemanager.Instance.Inventory;
     }
 
     // Update is called once per frame

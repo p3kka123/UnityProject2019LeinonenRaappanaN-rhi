@@ -17,6 +17,9 @@ public class SilamarikDialog : Dialog
     KVLIntro kvlIntroQuest;
     GuardIntro guardIntroQuest;
 
+    [SerializeField]
+    private List<Weapon> starterWeapons;
+
     public enum State
     {
         greet,
@@ -106,18 +109,21 @@ public class SilamarikDialog : Dialog
                 manager.ST("Sounds to me like you might want to check out the League of the Three Wizards. It's an organisation that does magical research.");
                 kvlIntroQuest = new KVLIntro();
                 QuestManager.Instance.AddQuest(kvlIntroQuest);
+                Inventory.Instance.AddItemToInventory(starterWeapons[0]);
                 state = State.lastline;
                 break;
             case State.slum:
                 manager.ST("I heard some people in the slums are offering work, if you're interested.");
                 slumIntroQuest = new SlumIntro();
                 QuestManager.Instance.AddQuest(slumIntroQuest);
+                Inventory.Instance.AddItemToInventory(starterWeapons[1]);
                 state = State.lastline;
                 break;
             case State.guard:
                 manager.ST("The town guard always needs new recruits, I think you'd fit right in.");
                 guardIntroQuest = new GuardIntro();
                 QuestManager.Instance.AddQuest(guardIntroQuest);
+                Inventory.Instance.AddItemToInventory(starterWeapons[2]);
                 state = State.lastline;
                 break;
             case State.lastline:

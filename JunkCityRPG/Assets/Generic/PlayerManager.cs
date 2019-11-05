@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerManager : MonoBehaviour
 {
 
@@ -18,6 +19,10 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject attackHitBox;
 
+    [HideInInspector]
+    [SerializeField]
+    private Weapon fist;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -33,9 +38,10 @@ public class PlayerManager : MonoBehaviour
             stats = new PlayerStats(10,10,10);
         }
 
+
         if(PlayerEquipment == null) {
             playerEquipment = new Equipment();
-            Inventory.Instance.EquipWeapon(new Fist());
+            
         }
     }
 

@@ -30,15 +30,13 @@ public class BarrelContainerDialog : Dialog
             choiceText[0] = "Take it.";
             choiceText[1] = "Leave it.";
             manager.Question(2,choiceText);
-        } else if(state == State.tookContents) {
-            SlobodansHonor honor = (SlobodansHonor)QuestManager.Instance.FindQuest("Slobodan's Honor");
-            if(honor == null) {
-                manager.ST("You have no use for that.");
-            } else {
-                manager.ST("You took the contents of the barrel.");
-                contentsTaken = true;
-                honor.PlayerHasCyanide = true;
-            }            
+        } else if(state == State.tookContents) {            
+            manager.ST("You took the contents of the barrel.");
+            List<Item> items = GetComponent<Container>().ItemsInContainer;
+            foreach(Item item in items) {
+                Inventory.Instance.AddItemToInventory(item);
+            }
+            contentsTaken = true;                
             state = State.end;
         } else if(state == State.leftContents) {
             manager.ST("You left the contents of the barrel be.");

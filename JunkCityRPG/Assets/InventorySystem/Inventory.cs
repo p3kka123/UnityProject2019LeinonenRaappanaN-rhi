@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour
 {
@@ -37,9 +38,16 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        _instance = this;
+        if(Instance == null)
+            _instance = this;
+
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
 
+    private void OnSceneLoad(Scene scene, LoadSceneMode mode) {
+        inventoryElementGrid = Gamemanager.Instance.InventoryGrid;
+        playerRightHandWeaponAnchor = Gamemanager.Instance.PlayerRightHandAnchor;
+    }
 
     public void AddItemToInventory(Item itemToAdd) {
         if(ContainsItem(itemToAdd.ItemName)) {
@@ -85,8 +93,9 @@ public class Inventory : MonoBehaviour
         if(cSetter != null)
             Destroy(cSetter.gameObject);
 
-
+        print("add menu items");
         foreach(Item item in inventoryItems) {
+            print("for each add menu item");
             GameObject menuItem = Instantiate(inventoryMenuItem, inventoryElementGrid.transform);
             menuItem.GetComponentInChildren<Text>().text = item.ItemName + "   " + item.AmountInInventory;
 
@@ -102,15 +111,15 @@ public class Inventory : MonoBehaviour
     public void EquipWeapon(Weapon weapon) {
         PlayerManager.Instance.PlayerEquipment.RightWeapon = weapon;
         PlayerManager.Instance.AttackHitBox.transform.localScale = new Vector3(weapon.Arc, 0.8f, weapon.Range);
-        if(!(weapon is Fist)) {
-            if(equippedWeaponGO != null) {
-                Destroy(equippedWeaponGO);
-            }
-            equippedWeaponGO = Instantiate(weapon.WeaponGO);
-            equippedWeaponGO.transform.SetParent(playerRightHandWeaponAnchor.transform);
-            equippedWeaponGO.transform.localPosition = Vector3.zero;
-            equippedWeaponGO.transform.localRotation = Quaternion.identity;
+
+        if(equippedWeaponGO != null) {
+            Destroy(equippedWeaponGO);
         }
+        equippedWeaponGO = Instantiate(weapon.WeaponGO);
+        equippedWeaponGO.transform.SetParent(playerRightHandWeaponAnchor.transform);
+        equippedWeaponGO.transform.localPosition = Vector3.zero;
+        equippedWeaponGO.transform.localRotation = Quaternion.identity;
+        
             
 
         print("Equipped " + weapon);

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
+[CreateAssetMenu(fileName = "Cyanide",menuName = "Consumables/Cyanide",order = 51)]
 public class Cyanide : Consumable
 {
     

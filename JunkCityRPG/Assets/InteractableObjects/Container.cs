@@ -8,7 +8,9 @@ public class Container : Interactable
     private Dialog dialog;
 
     [SerializeField]
-    private List<string> itemsInContainer;
+    private List<Item> itemsInContainer;
+
+    public List<Item> ItemsInContainer { get => itemsInContainer; set => itemsInContainer = value; }
 
     private void Awake() {
         dialog = GetComponent<Dialog>();

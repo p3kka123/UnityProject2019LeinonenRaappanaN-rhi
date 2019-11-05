@@ -1255,6 +1255,8 @@ MonoBehaviour:
   - {fileID: 1059369465}
   - {fileID: 1651521517}
   dialogText: {fileID: 3793897276556450567}
+  inventoryGrid: {fileID: 6737728949056174018}
+  inventoryGO: {fileID: 7173203865458868439}
 --- !u!1 &3793897276556450561
 GameObject:
   m_ObjectHideFlags: 0

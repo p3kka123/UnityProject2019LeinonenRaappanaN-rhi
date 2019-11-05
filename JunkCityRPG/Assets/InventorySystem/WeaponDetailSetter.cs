@@ -18,7 +18,6 @@ public class WeaponDetailSetter : ItemDetailSetter
     public void Awake() {
         discardButton.onClick.AddListener(delegate { DiscardItem("testo"); });
         equipButton.onClick.AddListener(delegate { EquipThisWeapon(DetailItem as Weapon); });
-        print(GetComponentInChildren<TextMeshProUGUI>());
     }
 
     public void EquipThisWeapon(Weapon weapon) {

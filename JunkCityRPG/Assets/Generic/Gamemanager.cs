@@ -8,6 +8,12 @@ public class Gamemanager : MonoBehaviour
 
     public static Gamemanager Instance { get { return _instance; } }
 
+
+    private GameObject player;
+    private GameObject inventoryGrid;
+    private GameObject playerRightHandAnchor;
+    private GameObject inventory;
+
     public GameState CurrentState { get => currentState; 
         set {
             lastState = currentState;
@@ -16,6 +22,10 @@ public class Gamemanager : MonoBehaviour
     }
 
     public GameState LastState { get => lastState;}
+    public GameObject Player { get => player; set => player = value; }
+    public GameObject InventoryGrid { get => inventoryGrid; set => inventoryGrid = value; }
+    public GameObject PlayerRightHandAnchor { get => playerRightHandAnchor; set => playerRightHandAnchor = value; }
+    public GameObject Inventory { get => inventory; set => inventory = value; }
 
     public enum GameState
     {

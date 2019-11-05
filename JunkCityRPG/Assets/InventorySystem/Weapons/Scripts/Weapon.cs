@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+[CreateAssetMenu(fileName = "New Weapon",menuName = "Weapon Data",order = 51)]
 public class Weapon : Item
 {
 
-    private GameObject weaponGO;
-    private float range;
-    private float arc;
-    private int attackSpeed;
-    private int damage;
-    private bool twoHanded;
+    [SerializeField] private GameObject weaponGO;
+    [SerializeField] private float range;
+    [SerializeField] private float arc;
+    [SerializeField] private int attackSpeed;
+    [SerializeField] private int damage;
+    [SerializeField] private bool twoHanded;
 
     public float Range { get => range; set => range = value; }
     public float Arc { get => arc; set => arc = value; }
