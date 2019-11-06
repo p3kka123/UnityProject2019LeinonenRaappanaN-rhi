@@ -14,4 +14,8 @@ public class InputfieldScript : MonoBehaviour
         //mainInputField.Select();
         mainInputField.ActivateInputField();
     }
+    private void LateUpdate()
+    {
+        if (mainInputField.IsActive()) mainInputField.ActivateInputField();
+    }
 }

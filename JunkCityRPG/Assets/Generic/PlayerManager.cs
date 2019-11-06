@@ -50,6 +50,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start() {
         Inventory.Instance.AddItemToInventory(fist);
+        Inventory.Instance.EquipWeapon(fist as Weapon);
     }
 
 

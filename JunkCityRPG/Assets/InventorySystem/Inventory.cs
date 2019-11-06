@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
@@ -94,7 +95,7 @@ public class Inventory : MonoBehaviour
 
         foreach(Item item in inventoryItems) {
             GameObject menuItem = Instantiate(inventoryMenuItem, inventoryElementGrid.transform);
-            menuItem.GetComponentInChildren<Text>().text = item.ItemName + "   " + item.AmountInInventory;
+            menuItem.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName + "   " + item.AmountInInventory;
 
             if(item is Weapon) {
                 menuItem.GetComponent<Button>().onClick.AddListener(delegate { ShowWeaponDetail(item as Weapon); });
