@@ -72,6 +72,9 @@ public class PlayerController : MonoBehaviour
         else
             animator.SetBool("Moving",false);
 
+
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) return;
+
         playerGO.transform.position += moveVector * Time.deltaTime;
 
         RotatePlayer();
@@ -170,8 +173,8 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput() {
 
-        if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog) return;
-        if(isDodge) return;
+        if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog || isDodge) return;
+
 
 
         if(Input.GetKeyDown(KeyCode.I)) {
