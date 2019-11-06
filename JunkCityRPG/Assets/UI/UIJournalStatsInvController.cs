@@ -19,15 +19,16 @@ public class UIJournalStatsInvController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         //if (Input.GetKeyDown(KeyCode.N))
             //gameObject.SetActive(!gameObject.activeInHierarchy);
         //if (gameObject.activeSelf) LoadTabContents(mode);
-    }
+    //}
 
     public void LoadTabContents(int _mode)
     {
+        if(mode == 2) inventory.OpenInventory();
         mode = _mode;
         if(mode == 0)
         {
