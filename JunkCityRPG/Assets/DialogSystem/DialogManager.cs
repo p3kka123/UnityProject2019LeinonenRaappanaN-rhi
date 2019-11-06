@@ -18,7 +18,6 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private Image image;
 
-    [SerializeField]
     private PlayerController PController;
 
     [SerializeField]
@@ -27,12 +26,6 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
     private Button[] buttons;
     [SerializeField]
     private Text dialogText;
-
-
-    [SerializeField]
-    private GameObject inventoryGrid;
-    [SerializeField]
-    private GameObject inventoryGO;
 
     Dialog dialog;
 
@@ -53,8 +46,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
         } else {
             _instance = this;
         }
-        Gamemanager.Instance.InventoryGrid = inventoryGrid;
-        Gamemanager.Instance.Inventory = inventoryGO;
+
     }
 
     private void Start() {
