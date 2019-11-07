@@ -17,6 +17,7 @@ public class Gamemanager : MonoBehaviour
     private GameObject inventory;
     private GameObject attackHitBox;
     private GameObject notification;
+    private UIJournalStatsInvController uiJSIcontroller;
     private string prevSceneName;
 
     private List<PlayerSpawnPoint> spawnPoints = new List<PlayerSpawnPoint>();
@@ -37,6 +38,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject Notification { get => notification; set => notification = value; }
     public List<PlayerSpawnPoint> SpawnPoints { get => spawnPoints; set => spawnPoints = value; }
     public string PrevSceneName { get => prevSceneName; set => prevSceneName = value; }
+    public UIJournalStatsInvController UiJSIcontroller { get => uiJSIcontroller; set => uiJSIcontroller = value; }
 
     public enum GameState
     {

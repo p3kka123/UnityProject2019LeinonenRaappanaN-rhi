@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isDodge;
 
+    private UIJournalStatsInvController uiJSIcontroller;
     private GameObject inventory;
 
     private Transform lockTargetTransform;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Start() {
+        uiJSIcontroller = Gamemanager.Instance.UiJSIcontroller;
         inventory = Gamemanager.Instance.Inventory;
         Transform spawnPoint = Gamemanager.Instance.GetPlayerSpawnPosition();
         transform.SetPositionAndRotation(spawnPoint.transform.position, spawnPoint.transform.rotation);
@@ -166,9 +168,25 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(facingRotation),0.15F);
     }
 
-    private void removeDodge()
+    private void RemoveDodge()
     {
         isDodge = false;
+    }
+
+    private void OpenJSI()
+    {
+        uiJSIcontroller.gameObject.SetActive(!uiJSIcontroller.gameObject.activeInHierarchy);
+        if (uiJSIcontroller.gameObject.activeSelf) uiJSIcontroller.LoadTabContents();
+        if (Gamemanager.Instance.CurrentState != Gamemanager.GameState.Menu) Gamemanager.Instance.CurrentState = Gamemanager.GameState.Menu;
+        else Gamemanager.Instance.CurrentState = Gamemanager.Instance.LastState;
+    }
+
+    private void OpenJSI(int mode)
+    {
+        if(!uiJSIcontroller.gameObject.activeSelf || mode == uiJSIcontroller.Mode) uiJSIcontroller.gameObject.SetActive(!uiJSIcontroller.gameObject.activeInHierarchy);
+        if (uiJSIcontroller.gameObject.activeSelf) uiJSIcontroller.PressTab(mode);
+        if (Gamemanager.Instance.CurrentState != Gamemanager.GameState.Menu) Gamemanager.Instance.CurrentState = Gamemanager.GameState.Menu;
+        if (!uiJSIcontroller.gameObject.activeSelf) Gamemanager.Instance.CurrentState = Gamemanager.Instance.LastState;
     }
 
     private void GetInput() {
@@ -176,17 +194,24 @@ public class PlayerController : MonoBehaviour
         if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog || isDodge) return;
 
 
+        if (Input.GetKeyDown(KeyCode.N))
+            OpenJSI();
 
         if(Input.GetKeyDown(KeyCode.I)) {
-            inventory.SetActive(!inventory.activeSelf);
-            Inventory.Instance.OpenInventory();
-            if(inventory.activeSelf)
-                Gamemanager.Instance.CurrentState = Gamemanager.GameState.Menu;
-            else
-                Gamemanager.Instance.CurrentState = Gamemanager.Instance.LastState;
+            OpenJSI(2);
         }
 
-        if(Input.GetKey(KeyCode.W)) {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            OpenJSI(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            OpenJSI(0);
+        }
+
+        if (Input.GetKey(KeyCode.W)) {
             strafe = 1;
         } else if(Input.GetKey(KeyCode.S)) {
             strafe = -1;

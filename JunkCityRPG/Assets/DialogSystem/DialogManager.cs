@@ -46,7 +46,6 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
         } else {
             _instance = this;
         }
-
     }
 
     private void Start() {

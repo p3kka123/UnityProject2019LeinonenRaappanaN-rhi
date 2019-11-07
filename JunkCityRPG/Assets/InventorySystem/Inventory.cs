@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
@@ -39,6 +40,10 @@ public class Inventory : MonoBehaviour
         if(Instance == null)
             _instance = this;
 
+
+        inventoryElementGrid = Gamemanager.Instance.InventoryGrid;
+        playerRightHandWeaponAnchor = Gamemanager.Instance.PlayerRightHandAnchor;
+
         SceneManager.sceneLoaded += OnSceneLoad;
     }
 
@@ -48,10 +53,11 @@ public class Inventory : MonoBehaviour
     }
 
     public void AddItemToInventory(Item itemToAdd) {
-        if(ContainsItem(itemToAdd.ItemName)) {
+        if (ContainsItem(itemToAdd.ItemName)) {
             int index = inventoryItems.IndexOf(itemToAdd);
             inventoryItems[index].AmountInInventory++;;
         } else {
+            print(itemToAdd.ToString());
             itemToAdd.AmountInInventory++;
             inventoryItems.Add(itemToAdd);
 
@@ -81,10 +87,13 @@ public class Inventory : MonoBehaviour
     }
 
     public void OpenInventory() {
-
-        foreach(Transform child in inventoryElementGrid.transform) {
+        
+        foreach (Transform child in inventoryElementGrid.transform) {
+            
             Destroy(child.gameObject);
         }
+
+        print("inventory size: " + inventoryItems.Count);
 
         if(wSetter != null) 
             Destroy(wSetter.gameObject);
@@ -92,9 +101,9 @@ public class Inventory : MonoBehaviour
             Destroy(cSetter.gameObject);
 
 
-        foreach(Item item in inventoryItems) {
+        foreach (Item item in inventoryItems) {
             GameObject menuItem = Instantiate(inventoryMenuItem, inventoryElementGrid.transform);
-            menuItem.GetComponentInChildren<Text>().text = item.ItemName + "   " + item.AmountInInventory;
+            menuItem.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName + "   " + item.AmountInInventory;
 
             if(item is Weapon) {
                 menuItem.GetComponent<Button>().onClick.AddListener(delegate { ShowWeaponDetail(item as Weapon); });

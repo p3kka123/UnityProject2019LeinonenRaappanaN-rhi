@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5294732601409428525}
   - component: {fileID: 5908007155494465167}
-  - component: {fileID: 6339337178372972143}
+  - component: {fileID: 2093632710}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackHitBox: {fileID: 0}
   fist: {fileID: 11400000, guid: c08b2d94447bd6c46b5b741a716f37f0, type: 2}
---- !u!114 &6339337178372972143
+--- !u!114 &2093632710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,11 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7af1928827a85409680c71116c7869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryElementGrid: {fileID: 0}
-  inventoryMenuItem: {fileID: 1115001938745088343, guid: 899f3527e6424f64bbfd5d8afeb9d19a,
+  inventoryMenuItem: {fileID: 5747444125124121903, guid: 29846b034cb40d64dba92343f479a322,
     type: 3}
-  weaponDetails: {fileID: 3585616740753955705, guid: 4fce6b221b2bd3049a8c8e4062b91eed,
+  weaponDetails: {fileID: 711831144528265233, guid: 1b9bf275e4a394a4189db77da4d35523,
     type: 3}
-  consumableDetails: {fileID: 3585616740753955705, guid: 26d3abf832e315f47944b24870c556fd,
+  consumableDetails: {fileID: 6013891103868845216, guid: a248d4d11e40e9d4a9f324204e2e791a,
     type: 3}
-  playerRightHandWeaponAnchor: {fileID: 0}
