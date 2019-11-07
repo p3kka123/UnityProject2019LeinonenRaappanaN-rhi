@@ -40,6 +40,10 @@ public class Inventory : MonoBehaviour
         if(Instance == null)
             _instance = this;
 
+
+        inventoryElementGrid = Gamemanager.Instance.InventoryGrid;
+        playerRightHandWeaponAnchor = Gamemanager.Instance.PlayerRightHandAnchor;
+
         SceneManager.sceneLoaded += OnSceneLoad;
     }
 
@@ -49,10 +53,13 @@ public class Inventory : MonoBehaviour
     }
 
     public void AddItemToInventory(Item itemToAdd) {
-        if(ContainsItem(itemToAdd.ItemName)) {
+        print("gona1");
+        if (ContainsItem(itemToAdd.ItemName)) {
+            print("gona2");
             int index = inventoryItems.IndexOf(itemToAdd);
             inventoryItems[index].AmountInInventory++;;
         } else {
+            print(itemToAdd.ToString());
             itemToAdd.AmountInInventory++;
             inventoryItems.Add(itemToAdd);
 
@@ -82,8 +89,9 @@ public class Inventory : MonoBehaviour
     }
 
     public void OpenInventory() {
-
-        foreach(Transform child in inventoryElementGrid.transform) {
+        
+        foreach (Transform child in inventoryElementGrid.transform) {
+            
             Destroy(child.gameObject);
         }
 
@@ -92,8 +100,11 @@ public class Inventory : MonoBehaviour
         if(cSetter != null)
             Destroy(cSetter.gameObject);
 
+        print("gona");
 
-        foreach(Item item in inventoryItems) {
+        print(inventoryItems.Count);
+        foreach (Item item in inventoryItems) {
+            print("gona1");
             GameObject menuItem = Instantiate(inventoryMenuItem, inventoryElementGrid.transform);
             menuItem.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName + "   " + item.AmountInInventory;
 

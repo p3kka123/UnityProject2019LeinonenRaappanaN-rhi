@@ -27,10 +27,9 @@ public class JournalPanel : MonoBehaviour
 
     public void PrintQuests()
     {
-        Slobbis = new SlobodansHonor();
-        for (int i = 0; i < 10; i++)
+        foreach (Transform child in grid.transform)
         {
-            QuestManager.Instance.AddQuest(Slobbis);
+            Destroy(child.gameObject);
         }
         if (questDescriptionText == null) questDescriptionText = GetComponentInChildren<TextMeshProUGUI>();
         foreach(Quest quest in QuestManager.Instance.activeQuests)
