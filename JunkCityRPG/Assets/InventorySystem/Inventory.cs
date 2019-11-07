@@ -93,8 +93,6 @@ public class Inventory : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        print("inventory size: " + inventoryItems.Count);
-
         if(wSetter != null) 
             Destroy(wSetter.gameObject);
         if(cSetter != null)
