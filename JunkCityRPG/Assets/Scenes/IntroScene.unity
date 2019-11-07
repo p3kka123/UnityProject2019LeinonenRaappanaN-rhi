@@ -872,6 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1ef61f1a1a1fd4fb4ab5c1f96b130c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialog: {fileID: 0}
   itemsInContainer:
   - {fileID: 11400000, guid: 6c0b5fdff33423446b232430c3b5d8c8, type: 2}
 --- !u!114 &953855627
@@ -1114,6 +1115,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 846500134, guid: ce3c35055602fc34989ca2d938289afa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce3c35055602fc34989ca2d938289afa, type: 3}

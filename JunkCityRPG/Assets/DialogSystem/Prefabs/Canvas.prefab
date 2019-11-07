@@ -63,9 +63,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: asfasfasf
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -134,9 +132,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 11491825}
-    characterCount: 1
+    characterCount: 9
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 0
     wordCount: 1
     linkCount: 0
     lineCount: 1
@@ -922,7 +920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -467, y: 258}
+  m_AnchoredPosition: {x: -692, y: 388}
   m_SizeDelta: {x: -957.5, y: -534.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1427518386
@@ -1697,16 +1695,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7821625753877745287, guid: a0b4c2ec47621294488b2a4d6c85cd71,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7821625753877745287, guid: a0b4c2ec47621294488b2a4d6c85cd71,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8171300352303866077, guid: a0b4c2ec47621294488b2a4d6c85cd71,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1736,6 +1724,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MovementType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821625753877745287, guid: a0b4c2ec47621294488b2a4d6c85cd71,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821625753877745287, guid: a0b4c2ec47621294488b2a4d6c85cd71,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0b4c2ec47621294488b2a4d6c85cd71, type: 3}

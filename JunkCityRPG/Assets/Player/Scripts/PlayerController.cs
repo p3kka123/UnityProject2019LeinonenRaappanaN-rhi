@@ -171,6 +171,8 @@ public class PlayerController : MonoBehaviour
     private void RemoveDodge()
     {
         isDodge = false;
+        forward = 0;
+        strafe = 0;
     }
 
     private void OpenJSI()
@@ -191,7 +193,7 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput() {
 
-        if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog || isDodge) return;
+        if(Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog || isDodge || animator.GetCurrentAnimatorStateInfo(0).IsName("Dodge")) return;
 
 
         if (Input.GetKeyDown(KeyCode.N))
@@ -239,9 +241,10 @@ public class PlayerController : MonoBehaviour
             if (forward != 0 ||strafe != 0) {
                 {
                     isDodge = true;
-                    Invoke("removeDodge", 0.4f);
+                    Invoke("RemoveDodge", 0.6f);
                     forward *= 1.5f;
                     strafe *= 1.5f;
+                    animator.SetTrigger("Dodge");
                 }
         }
 
