@@ -19,7 +19,7 @@ public class Interactable : MonoBehaviour
     }
 
     protected void OnMouseOver() {
-        tooltip.transform.position = Input.mousePosition + new Vector3(10,10);
+        tooltip.transform.position = Input.mousePosition + new Vector3(10,15);
     }
 
     protected void OnMouseEnter() {
