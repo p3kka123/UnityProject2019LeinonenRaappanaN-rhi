@@ -278,18 +278,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1504579894}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &117070388 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1312821146277156173, guid: cb3f235050efaf64bb3abbd53cee4b37,
-    type: 3}
-  m_PrefabInstance: {fileID: 1504579894}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117070386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc784f121f4047459709f1ae7a921e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &319320117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1107,10 +1095,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 436854867, guid: ce3c35055602fc34989ca2d938289afa, type: 3}
-      propertyPath: PController
-      value: 
-      objectReference: {fileID: 117070388}
+    - target: {fileID: 7821625754061323934, guid: ce3c35055602fc34989ca2d938289afa,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821625754061323934, guid: ce3c35055602fc34989ca2d938289afa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327458884381489062, guid: ce3c35055602fc34989ca2d938289afa,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327458884381489062, guid: ce3c35055602fc34989ca2d938289afa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce3c35055602fc34989ca2d938289afa, type: 3}
 --- !u!4 &974714800 stripped
@@ -1118,12 +1122,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 79bcf68dbff060c43af449d1bd66637b,
     type: 3}
   m_PrefabInstance: {fileID: 651293009}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1050639200 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6737728949056174018, guid: ce3c35055602fc34989ca2d938289afa,
-    type: 3}
-  m_PrefabInstance: {fileID: 956707459}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1084381126
 PrefabInstance:
@@ -1249,22 +1247,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6339337178372972143, guid: 089050d86e660db49a899312f894615f,
+        type: 3}
+      propertyPath: inventoryElementGrid
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339337178372972143, guid: 089050d86e660db49a899312f894615f,
+        type: 3}
+      propertyPath: playerRightHandWeaponAnchor
+      value: 
+      objectReference: {fileID: 1126184224}
     - target: {fileID: 5908007155494465167, guid: 089050d86e660db49a899312f894615f,
         type: 3}
       propertyPath: fist
       value: 
       objectReference: {fileID: 11400000, guid: c08b2d94447bd6c46b5b741a716f37f0,
         type: 2}
-    - target: {fileID: 6339337178372972143, guid: 089050d86e660db49a899312f894615f,
-        type: 3}
-      propertyPath: inventoryElementGrid
-      value: 
-      objectReference: {fileID: 1050639200}
-    - target: {fileID: 6339337178372972143, guid: 089050d86e660db49a899312f894615f,
-        type: 3}
-      propertyPath: playerRightHandWeaponAnchor
-      value: 
-      objectReference: {fileID: 1126184224}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089050d86e660db49a899312f894615f, type: 3}
 --- !u!1 &1121428887
@@ -1516,12 +1514,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1189775670 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7173203865458868439, guid: ce3c35055602fc34989ca2d938289afa,
-    type: 3}
-  m_PrefabInstance: {fileID: 956707459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1205734500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: e59c9f528a42e284ebb02b1dd34b3217,
@@ -1830,7 +1822,7 @@ PrefabInstance:
         type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 1189775670}
+      objectReference: {fileID: 0}
     - target: {fileID: 4493700974685126210, guid: cb3f235050efaf64bb3abbd53cee4b37,
         type: 3}
       propertyPath: m_LocalPosition.x
