@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccd0d276bdb15e42b07857c56e4f55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseCursor: {fileID: 2800000, guid: a5f9cc9a5efbe894eb85de4851711ba8, type: 3}
+  interactableCursor: {fileID: 2800000, guid: 0f45821c9378469498c0044ff9068ea2, type: 3}

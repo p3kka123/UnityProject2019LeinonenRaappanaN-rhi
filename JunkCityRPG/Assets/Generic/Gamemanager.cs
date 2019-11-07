@@ -22,6 +22,10 @@ public class Gamemanager : MonoBehaviour
 
     private List<PlayerSpawnPoint> spawnPoints = new List<PlayerSpawnPoint>();
 
+    [SerializeField] private Texture2D baseCursor;
+    [SerializeField] private Texture2D interactableCursor;
+
+
     public GameState CurrentState { get => currentState; 
         set {
             lastState = currentState;
@@ -39,6 +43,8 @@ public class Gamemanager : MonoBehaviour
     public List<PlayerSpawnPoint> SpawnPoints { get => spawnPoints; set => spawnPoints = value; }
     public string PrevSceneName { get => prevSceneName; set => prevSceneName = value; }
     public UIJournalStatsInvController UiJSIcontroller { get => uiJSIcontroller; set => uiJSIcontroller = value; }
+    public Texture2D InteractableCursor { get => interactableCursor; set => interactableCursor = value; }
+    public Texture2D BaseCursor { get => baseCursor; set => baseCursor = value; }
 
     public enum GameState
     {
@@ -60,6 +66,8 @@ public class Gamemanager : MonoBehaviour
         } else {
             _instance = this;
         }
+
+        Cursor.SetCursor(BaseCursor, Vector2.zero, CursorMode.Auto);
 
         DontDestroyOnLoad(this);
 
