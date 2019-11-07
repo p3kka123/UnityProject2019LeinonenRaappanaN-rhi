@@ -1095,31 +1095,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8171300352388862148, guid: ce3c35055602fc34989ca2d938289afa,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00007725233
-      objectReference: {fileID: 0}
-    - target: {fileID: 6678380788031522886, guid: ce3c35055602fc34989ca2d938289afa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954526515656600632, guid: ce3c35055602fc34989ca2d938289afa,
-        type: 3}
-      propertyPath: m_Vertical
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954526515656600632, guid: ce3c35055602fc34989ca2d938289afa,
-        type: 3}
-      propertyPath: m_Horizontal
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954526515656600632, guid: ce3c35055602fc34989ca2d938289afa,
-        type: 3}
-      propertyPath: m_MovementType
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4327458884381489062, guid: ce3c35055602fc34989ca2d938289afa,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1140,8 +1115,7 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7821625754523088539, guid: ce3c35055602fc34989ca2d938289afa, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce3c35055602fc34989ca2d938289afa, type: 3}
 --- !u!4 &974714800 stripped
 Transform:
@@ -1952,7 +1926,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: e59c9f528a42e284ebb02b1dd34b3217, type: 3}
       propertyPath: m_Name
-      value: barrel_fbx
+      value: Barrel
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: e59c9f528a42e284ebb02b1dd34b3217, type: 3}
       propertyPath: m_TagString
@@ -2617,7 +2591,7 @@ PrefabInstance:
     - target: {fileID: 7742179945301073207, guid: c2a3d1183da9e5949bca3c534322fd76,
         type: 3}
       propertyPath: m_Name
-      value: silamarik
+      value: Silamarik
       objectReference: {fileID: 0}
     - target: {fileID: 7742179945301229783, guid: c2a3d1183da9e5949bca3c534322fd76,
         type: 3}

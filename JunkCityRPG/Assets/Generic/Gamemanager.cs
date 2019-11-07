@@ -17,6 +17,7 @@ public class Gamemanager : MonoBehaviour
     private GameObject inventory;
     private GameObject attackHitBox;
     private GameObject notification;
+    private GameObject toolTip;
     private UIJournalStatsInvController uiJSIcontroller;
     private string prevSceneName;
 
@@ -45,6 +46,7 @@ public class Gamemanager : MonoBehaviour
     public UIJournalStatsInvController UiJSIcontroller { get => uiJSIcontroller; set => uiJSIcontroller = value; }
     public Texture2D InteractableCursor { get => interactableCursor; set => interactableCursor = value; }
     public Texture2D BaseCursor { get => baseCursor; set => baseCursor = value; }
+    public GameObject ToolTip { get => toolTip; set => toolTip = value; }
 
     public enum GameState
     {
