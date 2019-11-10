@@ -88,6 +88,8 @@ public class Inventory : MonoBehaviour
 
     public void OpenInventory() {
         
+        print(inventoryItems.Count);
+
         foreach (Transform child in inventoryElementGrid.transform) {
             
             Destroy(child.gameObject);
