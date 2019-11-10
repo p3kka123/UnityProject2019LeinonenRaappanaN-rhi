@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class DialogManager : MonoBehaviour, IPointerClickHandler
 {
@@ -25,7 +26,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private Button[] buttons;
     [SerializeField]
-    private Text dialogText;
+    private TextMeshProUGUI dialogText;
 
     Dialog dialog;
 
@@ -73,7 +74,7 @@ public class DialogManager : MonoBehaviour, IPointerClickHandler
         askQ = true;
         for(int i = 0; i < amount; i++) {
             buttons[i].gameObject.SetActive(true);
-            buttons[i].GetComponentInChildren<Text>().text = answers[i];
+            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = answers[i];
         }
     }
 
