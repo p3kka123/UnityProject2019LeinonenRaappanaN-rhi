@@ -57,7 +57,7 @@ public class PortHoboDialog : Dialog
                 state = State.end;
                 break;
             case State.end:
-                if(givenMoney || !gulag)
+                if(givenMoney)
                     state = State.giveMoney;
                 else if(gulag)
                     state = State.gulag;
@@ -84,12 +84,15 @@ public class PortHoboDialog : Dialog
                     FactionManager.Instance.FactionEncountered("Hobos");
                 } else if(ans == 1) {
                     state = State.accuse;
-                } else
+                } else {
                     state = State.end;
+                }              
                 break;
             case State.accuse:
                 if(ans == 0) {
                     state = State.giveMoney;
+                    givenMoney = true;
+                    FactionManager.Instance.FactionEncountered("Hobos");
                 } else if(ans == 1) {
                     state = State.gulag;
                     FactionManager.Instance.GetFaction("Hobos").Influence += -1;

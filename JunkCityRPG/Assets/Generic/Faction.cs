@@ -29,17 +29,17 @@ public class Faction : ScriptableObject
     public string GetFactionOpinion() {
         Debug.Log("opinion: " + influence);
         switch(Influence) {
-            case int n when(n < -20 && n >= -30):
+            case int n when(n < -25 && n >= -35):
                 return "Hostile";
-            case int n when(n < -10 && n >= -20):
+            case int n when(n < -15 && n >= -25):
                 return "Negative";
-            case int n when(n < 0 && n >= -10):
+            case int n when(n < -5 && n >= -15):
                 return "Wary";
-            case int n when(n > 0 && n <= 10):
+            case int n when(n > 5 && n <= 15):
                 return "Friendly";
-            case int n when(n > 10 && n <= 20):
+            case int n when(n > 15 && n <= 25):
                 return "Respected";
-            case int n when(n > 20 && n <= 30):
+            case int n when(n > 25 && n <= 35):
                 return "Honoured";
             default:
                 return "neutral";
