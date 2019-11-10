@@ -18,6 +18,7 @@ public class Gamemanager : MonoBehaviour
     private GameObject attackHitBox;
     private GameObject notification;
     private GameObject toolTip;
+    private TextMeshProUGUI money;
     private UIJournalStatsInvController uiJSIcontroller;
     private string prevSceneName;
 
@@ -47,6 +48,7 @@ public class Gamemanager : MonoBehaviour
     public Texture2D InteractableCursor { get => interactableCursor; set => interactableCursor = value; }
     public Texture2D BaseCursor { get => baseCursor; set => baseCursor = value; }
     public GameObject ToolTip { get => toolTip; set => toolTip = value; }
+    public TextMeshProUGUI Money { get => money; set => money = value; }
 
     public enum GameState
     {

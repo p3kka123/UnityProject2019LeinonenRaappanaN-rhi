@@ -109,6 +109,7 @@ public class SilamarikDialog : Dialog
                 kvlIntroQuest = new KVLIntro();
                 QuestManager.Instance.AddQuest(kvlIntroQuest);
                 PlayerManager.Instance.Stats.Intelligence += 2;
+                Inventory.Instance.Money = 2;
                 state = State.lastline;
                 break;
             case State.slum:
@@ -116,6 +117,7 @@ public class SilamarikDialog : Dialog
                 slumIntroQuest = new SlumIntro();
                 QuestManager.Instance.AddQuest(slumIntroQuest);
                 PlayerManager.Instance.Stats.Charisma += 2;
+                Inventory.Instance.Money = 3;
                 state = State.lastline;
                 break;
             case State.guard:
@@ -123,6 +125,7 @@ public class SilamarikDialog : Dialog
                 guardIntroQuest = new GuardIntro();
                 QuestManager.Instance.AddQuest(guardIntroQuest);
                 PlayerManager.Instance.Stats.Strength += 2;
+                Inventory.Instance.Money = 1;
                 state = State.lastline;
                 break;
             case State.lastline:
