@@ -44,7 +44,7 @@ public class PortHoboDialog : Dialog
                 HandleNode(node);
                 break;
             case State.giveMoney:
-                manager.ST("Thank the heavens for your kindness sir!");               
+                manager.ST("Thank the heavens for your kindness sir!");    
                 state = State.end;
                 break;
             case State.accuse:
@@ -80,6 +80,8 @@ public class PortHoboDialog : Dialog
                 if(ans == 0) {
                     state = State.giveMoney;
                     givenMoney = true;
+                    FactionManager.Instance.GetFaction("Hobos").Influence += 1;
+                    FactionManager.Instance.FactionEncountered("Hobos");
                 } else if(ans == 1) {
                     state = State.accuse;
                 } else
@@ -90,8 +92,14 @@ public class PortHoboDialog : Dialog
                     state = State.giveMoney;
                 } else if(ans == 1) {
                     state = State.gulag;
-                } else
+                    FactionManager.Instance.GetFaction("Hobos").Influence += -1;
+                    FactionManager.Instance.FactionEncountered("Hobos");
+                } else {
                     state = State.gulag;
+                    FactionManager.Instance.GetFaction("Hobos").Influence += -1;
+                    FactionManager.Instance.FactionEncountered("Hobos");
+                }
+                    
                 break;
         }
         NextLine();

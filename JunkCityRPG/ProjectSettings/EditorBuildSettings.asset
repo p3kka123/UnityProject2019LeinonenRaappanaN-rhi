@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Port.unity
     guid: 7a05f1e76a8c90b4b9f8b19c3282b2da
+  - enabled: 1
+    path: Assets/Scenes/CrustySeaman.unity
+    guid: 423a264b3d696e649881bd21bb013926
   m_configObjects: {}
