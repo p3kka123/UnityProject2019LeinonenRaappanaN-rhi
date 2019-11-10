@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         inventory = Gamemanager.Instance.Inventory;
         Transform spawnPoint = Gamemanager.Instance.GetPlayerSpawnPosition();
         transform.SetPositionAndRotation(spawnPoint.transform.position, spawnPoint.transform.rotation);
+        PlayerManager.Instance.PlayerEquipment.EquipPlayer();
     }
 
     // Update is called once per frame
