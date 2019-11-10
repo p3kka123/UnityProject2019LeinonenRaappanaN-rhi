@@ -12,8 +12,4 @@ public class Container : Interactable
     public List<Item> ItemsInContainer { get => itemsInContainer; set => itemsInContainer = value; }
 
 
-
-    public override void Interact() {
-        DialogManager.Instance.show(dialog);
-    }
 }
