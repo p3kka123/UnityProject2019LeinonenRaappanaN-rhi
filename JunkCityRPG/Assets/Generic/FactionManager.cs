@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FactionManager : MonoBehaviour
 {
+    private static FactionManager _instance;
+    public static FactionManager Instance { get { return _instance; } }
+
     [SerializeField]
     private List<Faction> factions = new List<Faction>();
 
@@ -11,9 +14,16 @@ public class FactionManager : MonoBehaviour
 
     private void Start() {
 
-        foreach(Faction faction in Factions) {
-            print(faction.FactionName + " " + faction.GetFactionOpinion());
+        if(_instance != null && _instance != this) {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
         }
+        DontDestroyOnLoad(this);
+
+        //foreach(Faction faction in Factions) {
+        //    print(faction.FactionName + " " + faction.GetFactionOpinion());
+        //}
     }
 
     public void FactionEncountered(string factionName) {
