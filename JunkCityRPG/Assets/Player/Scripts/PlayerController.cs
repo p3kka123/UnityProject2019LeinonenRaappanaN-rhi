@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour
     private void OpenJSI()
     {
         uiJSIcontroller.gameObject.SetActive(!uiJSIcontroller.gameObject.activeInHierarchy);
-        if (uiJSIcontroller.gameObject.activeSelf) uiJSIcontroller.LoadTabContents();
+        if (uiJSIcontroller.gameObject.activeSelf) uiJSIcontroller.PressTab(uiJSIcontroller.Mode);
         if (Gamemanager.Instance.CurrentState != Gamemanager.GameState.Menu) Gamemanager.Instance.CurrentState = Gamemanager.GameState.Menu;
         else Gamemanager.Instance.CurrentState = Gamemanager.Instance.LastState;
     }
@@ -211,6 +211,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             OpenJSI(0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            OpenJSI(3);
         }
 
         if (Input.GetKey(KeyCode.W)) {
