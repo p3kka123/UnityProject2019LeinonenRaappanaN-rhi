@@ -32,7 +32,8 @@ public class UIJournalStatsInvController : MonoBehaviour
 
     private void OnDisable()
     {
-        Inventory.Instance.OpenInventory();
+        if(Inventory.Instance != null)
+            Inventory.Instance.OpenInventory();
     }
 
     public void LoadTabContents()
