@@ -20,9 +20,14 @@ public class Faction : ScriptableObject
     public int Influence { get => influence; set => influence = value; }
     public bool FactionEncountered { get => factionEncountered; set => factionEncountered = value; }
 
+    private void OnEnable() {
+        factionEncountered = false;
+        influence = 0;
+    }
 
     //Hostile - Negative - Wary - Neutral - Friendly - Ally - Honoured
     public string GetFactionOpinion() {
+        Debug.Log("opinion: " + influence);
         switch(Influence) {
             case int n when(n < -20 && n >= -30):
                 return "Hostile";

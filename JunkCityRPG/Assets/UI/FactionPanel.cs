@@ -15,6 +15,7 @@ public class FactionPanel : MonoBehaviour
         textString = "";
         foreach(Faction faction in FactionManager.Instance.Factions)
         {
+            print(faction.name + " encountered " + faction.FactionEncountered);
             if (faction.FactionEncountered)
                 textString += faction.FactionName + "\t" + faction.GetFactionOpinion() + "\n";
         }
