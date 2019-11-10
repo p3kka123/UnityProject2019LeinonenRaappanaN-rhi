@@ -12,7 +12,13 @@ public class TargetReticle : MonoBehaviour
     }
 
     public void SetTarget(Transform targetTransform) {
-        target = targetTransform;
+        TargetingPoint tPoint = targetTransform.GetComponentInChildren<TargetingPoint>();
+        if(tPoint != null) {
+            target = tPoint.transform;
+        } else {
+            target = targetTransform;
+        }
+        
     }
 
     public void SetColor(Color color) {

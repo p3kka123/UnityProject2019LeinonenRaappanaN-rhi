@@ -5,13 +5,17 @@ using TMPro;
 
 public class Interactable : MonoBehaviour
 {
+    [SerializeField]
+    protected Dialog dialog;
 
     private GameObject tooltip;
 
-
+    private void Awake() {
+        dialog = GetComponent<Dialog>();
+    }
 
     public virtual void Interact() {
-
+        DialogManager.Instance.show(dialog);
     }
 
     private void Start() {
