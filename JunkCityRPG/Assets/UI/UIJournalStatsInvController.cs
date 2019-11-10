@@ -9,18 +9,22 @@ public class UIJournalStatsInvController : MonoBehaviour
 
     private StatPanel stats;
     private JournalPanel journal;
+    private FactionPanel factions;
     [SerializeField]
     private Button statButton;
     [SerializeField]
     private Button invButton;
     [SerializeField]
     private Button jButton;
+    [SerializeField]
+    private Button fButton;
 
     public int Mode { get => mode; set => mode = value; }
 
     // Start is called before the first frame update
     void Start()
     {
+        factions = GetComponentInChildren<FactionPanel>();
         journal = GetComponentInChildren<JournalPanel>();
         stats = GetComponentInChildren<StatPanel>();
         gameObject.SetActive(false);
@@ -30,14 +34,6 @@ public class UIJournalStatsInvController : MonoBehaviour
     {
         Inventory.Instance.OpenInventory();
     }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //if (Input.GetKeyDown(KeyCode.N))
-    //gameObject.SetActive(!gameObject.activeInHierarchy);
-    //if (gameObject.activeSelf) LoadTabContents(mode);
-    //}
 
     public void LoadTabContents()
     {
@@ -53,6 +49,10 @@ public class UIJournalStatsInvController : MonoBehaviour
         else if (Mode == 2)
         {
             Inventory.Instance.OpenInventory();
+        }
+        else if (Mode == 3)
+        {
+            factions.PrintFactions();
         }
     }
 
@@ -72,6 +72,10 @@ public class UIJournalStatsInvController : MonoBehaviour
         {
             Inventory.Instance.OpenInventory();
         }
+        else if (Mode == 3)
+        {
+            factions.PrintFactions();
+        }
     }
 
     public void PressTab(int _mode)
@@ -87,7 +91,11 @@ public class UIJournalStatsInvController : MonoBehaviour
         else if (_mode == 2)
         {
             invButton.onClick.Invoke();
-        }    
+        }
+        else if (_mode == 3)
+        {
+            fButton.onClick.Invoke();
+        }
     }
 
 }
