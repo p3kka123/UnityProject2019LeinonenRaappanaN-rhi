@@ -18,7 +18,6 @@ public class IntroDialog : Dialog
 
 
     override public void NextLine() {
-        print("next line");
         switch (currentDialog) {
             case 0:
                 DialogManager.Instance.ST("You have boarded a ship bound to Junk City. What brings you to this cesspool, only you know.");

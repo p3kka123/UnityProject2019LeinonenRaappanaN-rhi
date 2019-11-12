@@ -48,7 +48,7 @@ public class PortHoboDialog : Dialog
                 state = State.end;
                 break;
             case State.accuse:
-                node = new DialogNode("This cart been here for days! It's abandoned I tell you. Please mister, be kind to me.","I'll let you off the hook this time.","[Call authorities]","[Attack]");
+                node = new DialogNode("The cart's been here for days! It's abandoned I tell you. Please mister, be kind to me.","I'll let you off the hook this time.","[Call authorities]","[Attack]");
                 HandleNode(node);
                 break;
             case State.gulag:

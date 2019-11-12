@@ -17,7 +17,6 @@ public class SilamarikDialog : Dialog
     KVLIntro kvlIntroQuest;
     GuardIntro guardIntroQuest;
 
-
     public enum State
     {
         greet,
@@ -78,6 +77,7 @@ public class SilamarikDialog : Dialog
         switch (state)
         {
             case State.greet:
+                GetComponent<AudioSource>().Play();
                 manager.ST("Welcome aboard the Soaring Phallus! My name is Silamarik, the captain of this 'beaut.\n Soon we'll be arriving in Junk City, the biggest city around these parts.");
                 state = State.askName;
                 break;
