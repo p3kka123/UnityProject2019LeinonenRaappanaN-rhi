@@ -27,9 +27,10 @@ public class Gamemanager : MonoBehaviour
 
     [SerializeField] private Texture2D baseCursor;
     [SerializeField] private Texture2D interactableCursor;
+    [SerializeField] private Texture2D attackCursor;
 
 
-    public GameState CurrentState { get => currentState; 
+    public GameState CurrentState { get => currentState;
         set {
             lastState = currentState;
             currentState = value;
@@ -50,6 +51,7 @@ public class Gamemanager : MonoBehaviour
     public Texture2D BaseCursor { get => baseCursor; set => baseCursor = value; }
     public GameObject ToolTip { get => toolTip; set => toolTip = value; }
     public TextMeshProUGUI Money { get => money; set => money = value; }
+    public Texture2D AttackCursor { get => attackCursor; set => attackCursor = value; }
     public UIFader DeathScreen { get => deathScreen; set => deathScreen = value; }
 
     public enum GameState
@@ -89,7 +91,7 @@ public class Gamemanager : MonoBehaviour
         foreach(PlayerSpawnPoint spawnPoint in spawnPoints) {
             if(spawnPoint.PreviousScene == prevSceneName) {
                 return spawnPoint.transform;
-            }            
+            }
         }
         return SpawnPoints[0].transform;
     }
@@ -97,7 +99,7 @@ public class Gamemanager : MonoBehaviour
     public void DisplayNotification(string message) {
         notification.GetComponentInChildren<TextMeshProUGUI>().text = message;
         StartCoroutine(FadeImage(false));
-        StartCoroutine(WaitForX(3f)); 
+        StartCoroutine(WaitForX(3f));
     }
 
     IEnumerator WaitForX(float time) {

@@ -15,7 +15,8 @@ public class Interactable : MonoBehaviour
     }
 
     public virtual void Interact() {
-        DialogManager.Instance.show(dialog);
+        if(dialog != null)
+            DialogManager.Instance.show(dialog);
     }
 
     private void Start() {
@@ -29,7 +30,10 @@ public class Interactable : MonoBehaviour
     protected void OnMouseEnter() {
         tooltip.SetActive(true);
         tooltip.GetComponentInChildren<TextMeshProUGUI>().text = gameObject.name;
-        Cursor.SetCursor(Gamemanager.Instance.InteractableCursor, Vector2.zero, CursorMode.Auto);
+        if(gameObject.tag == "Enemy")
+            Cursor.SetCursor(Gamemanager.Instance.AttackCursor,Vector2.zero,CursorMode.Auto);
+        else
+            Cursor.SetCursor(Gamemanager.Instance.InteractableCursor, Vector2.zero, CursorMode.Auto);
     }
 
     protected void OnMouseExit() {

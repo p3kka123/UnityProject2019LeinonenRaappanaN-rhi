@@ -23,6 +23,8 @@ public class SceneChanger : MonoBehaviour
         print("trigger enter");
         if(other.transform.root.tag == "Player") {
             print("Enter " + targetScene);
+            StartCoroutine(SceneFader.Instance.FadeAndLoadScene(SceneFader.FadeDirection.In,"SlumAmbush"));
+            
         }
     }
 }

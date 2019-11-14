@@ -98,9 +98,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void InitiateDialog() {
-        if(!lockedToTarget && Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog) {
-            UninitiateDialog();
-        }
+        //if(!lockedToTarget && Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dialog) {
+        //    UninitiateDialog();
+        //}
         if(!lockTargetTransform) return;
 
         if(Input.GetKeyDown(KeyCode.E) && lockTargetTransform.gameObject.tag == "NPC" && Gamemanager.Instance.CurrentState != Gamemanager.GameState.Dialog) {
