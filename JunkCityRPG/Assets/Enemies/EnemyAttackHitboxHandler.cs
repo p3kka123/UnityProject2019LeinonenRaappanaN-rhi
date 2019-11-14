@@ -14,6 +14,9 @@ public class EnemyAttackHitboxHandler : MonoBehaviour
             if(PlayerManager.Instance.Stats.Health <= 0)
             {
                 Gamemanager.Instance.CurrentState = Gamemanager.GameState.Dead;
+                Gamemanager.Instance.DeathScreen.FadeInDeathScreen();
+                GetComponentInParent<AIScript>().PlayerDied();
+                other.GetComponent<PlayerController>().Die();
             }
         }
     }

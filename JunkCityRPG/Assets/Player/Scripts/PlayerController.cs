@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public void Die()
+    {
+        gameObject.transform.Rotate(90, 0, 0);
+    }
+
 
     // Start is called before the first frame update
     void Awake()

@@ -11,6 +11,7 @@ public class CanvasReporter : MonoBehaviour
     [SerializeField] private GameObject notification;
     [SerializeField] private GameObject tooltip;
     [SerializeField] private TextMeshProUGUI money;
+    [SerializeField] private UIFader deathScreen;
 
     // Update is called once per frame
     void Awake()
@@ -21,5 +22,6 @@ public class CanvasReporter : MonoBehaviour
         Gamemanager.Instance.Notification = notification;
         Gamemanager.Instance.ToolTip = tooltip;
         Gamemanager.Instance.Money = money;
+        Gamemanager.Instance.DeathScreen = deathScreen;
     }
 }
