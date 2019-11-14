@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dead) return;
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
             attackHitBox.SetActive(true);
         } else {

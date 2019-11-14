@@ -56,7 +56,8 @@ public class Gamemanager : MonoBehaviour
         Dialog,
         Combat,
         Menu,
-        Pause
+        Pause,
+        Dead
     }
 
     private GameState lastState;

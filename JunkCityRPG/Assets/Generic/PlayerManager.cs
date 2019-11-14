@@ -36,7 +36,7 @@ public class PlayerManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         if(stats == null) {
-            stats = new PlayerStats(10,10,10);
+            stats = new PlayerStats(100,10,10);
             if(stats.Name == null)
                 stats.Name = "Sloppis";
         }
