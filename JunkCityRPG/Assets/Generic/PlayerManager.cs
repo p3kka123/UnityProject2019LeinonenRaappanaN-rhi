@@ -43,7 +43,8 @@ public class PlayerManager : MonoBehaviour
 
 
         if(PlayerEquipment == null) {
-            playerEquipment = new Equipment();    
+            playerEquipment = new Equipment();  
+            playerEquipment.RightWeapon = fist;
         }
         SceneManager.sceneLoaded += OnSceneLoad;
     }
@@ -56,9 +57,11 @@ public class PlayerManager : MonoBehaviour
 
 
     private void OnSceneLoad(Scene scene,LoadSceneMode mode) {
-        attackHitBox = Gamemanager.Instance.AttackHitBox;        
+        attackHitBox = Gamemanager.Instance.AttackHitBox;      
+        //playerEquipment.EquipPlayer();
     }
     
+
 
     public class Equipment
     {
@@ -83,6 +86,11 @@ public class PlayerManager : MonoBehaviour
         public Item Ring1 { get => ring1; set => ring1 = value; }
         public Item Ring2 { get => ring2; set => ring2 = value; }
         public Item Feet { get => feet; set => feet = value; }
+
+        public void EquipPlayer() {
+            Inventory.Instance.EquipWeapon(rightWeapon as Weapon);
+        }
+
     }
 
 }

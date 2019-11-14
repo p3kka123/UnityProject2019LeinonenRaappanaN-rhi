@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
+    private AudioSource audioSource;
 
 
     // Start is called before the first frame update
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         mainCamera = Camera.main;
         Gamemanager.Instance.Player = gameObject;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start() {
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
         inventory = Gamemanager.Instance.Inventory;
         Transform spawnPoint = Gamemanager.Instance.GetPlayerSpawnPosition();
         transform.SetPositionAndRotation(spawnPoint.transform.position, spawnPoint.transform.rotation);
+        PlayerManager.Instance.PlayerEquipment.EquipPlayer();
     }
 
     // Update is called once per frame
@@ -69,10 +72,16 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveVector = new Vector3(forward,0,strafe);
 
-        if(moveVector != Vector3.zero)
-            animator.SetBool("Moving", true);
-        else
+        if(moveVector != Vector3.zero) {
+            animator.SetBool("Moving",true);
+            if(!audioSource.isPlaying && !isDodge)
+                audioSource.Play();
+        }            
+        else {
             animator.SetBool("Moving",false);
+            audioSource.Stop();
+        }
+            
 
 
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) return;
@@ -248,6 +257,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
             if (forward != 0 ||strafe != 0) {
                 {
+                    audioSource.Stop();
                     isDodge = true;
                     Invoke("RemoveDodge", 0.6f);
                     forward *= 1.5f;

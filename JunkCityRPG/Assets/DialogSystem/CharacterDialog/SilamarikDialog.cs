@@ -17,7 +17,6 @@ public class SilamarikDialog : Dialog
     KVLIntro kvlIntroQuest;
     GuardIntro guardIntroQuest;
 
-
     public enum State
     {
         greet,
@@ -78,6 +77,7 @@ public class SilamarikDialog : Dialog
         switch (state)
         {
             case State.greet:
+                GetComponent<AudioSource>().Play();
                 manager.ST("Welcome aboard the Soaring Phallus! My name is Silamarik, the captain of this 'beaut.\n Soon we'll be arriving in Junk City, the biggest city around these parts.");
                 state = State.askName;
                 break;
@@ -109,6 +109,7 @@ public class SilamarikDialog : Dialog
                 kvlIntroQuest = new KVLIntro();
                 QuestManager.Instance.AddQuest(kvlIntroQuest);
                 PlayerManager.Instance.Stats.Intelligence += 2;
+                Inventory.Instance.Money = 2;
                 state = State.lastline;
                 break;
             case State.slum:
@@ -116,6 +117,7 @@ public class SilamarikDialog : Dialog
                 slumIntroQuest = new SlumIntro();
                 QuestManager.Instance.AddQuest(slumIntroQuest);
                 PlayerManager.Instance.Stats.Charisma += 2;
+                Inventory.Instance.Money = 3;
                 state = State.lastline;
                 break;
             case State.guard:
@@ -123,6 +125,7 @@ public class SilamarikDialog : Dialog
                 guardIntroQuest = new GuardIntro();
                 QuestManager.Instance.AddQuest(guardIntroQuest);
                 PlayerManager.Instance.Stats.Strength += 2;
+                Inventory.Instance.Money = 1;
                 state = State.lastline;
                 break;
             case State.lastline:

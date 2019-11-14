@@ -16,6 +16,7 @@ public class PlayerCombat : MonoBehaviour
         Gamemanager.Instance.PlayerRightHandAnchor = rightHandAnchorPoint;       
     }
 
+
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Enemy") {
             DamageEnemy(other.gameObject);   

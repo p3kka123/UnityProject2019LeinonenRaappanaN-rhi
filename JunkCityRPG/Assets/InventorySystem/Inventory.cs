@@ -12,8 +12,11 @@ public class Inventory : MonoBehaviour
 
     public static Inventory Instance { get { return _instance; } }
 
+    public int Money { get => money; set => money = value; }
 
     private List<Item> inventoryItems = new List<Item>();
+
+    private int money = 0;
     
 
     private GameObject inventoryElementGrid;
@@ -40,6 +43,7 @@ public class Inventory : MonoBehaviour
         if(Instance == null)
             _instance = this;
 
+        
 
         inventoryElementGrid = Gamemanager.Instance.InventoryGrid;
         playerRightHandWeaponAnchor = Gamemanager.Instance.PlayerRightHandAnchor;
@@ -88,7 +92,7 @@ public class Inventory : MonoBehaviour
 
     public void OpenInventory() {
         
-        print(inventoryItems.Count);
+        Gamemanager.Instance.Money.text = money + " Marks";
 
         foreach (Transform child in inventoryElementGrid.transform) {
             

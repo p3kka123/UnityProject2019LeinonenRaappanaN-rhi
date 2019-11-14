@@ -48,7 +48,7 @@ public class PortHoboDialog : Dialog
                 state = State.end;
                 break;
             case State.accuse:
-                node = new DialogNode("This cart been here for days! It's abandoned I tell you. Please mister, be kind to me.","I'll let you off the hook this time.","[Call authorities]","[Attack]");
+                node = new DialogNode("The cart's been here for days! It's abandoned I tell you. Please mister, be kind to me.","I'll let you off the hook this time.","[Call authorities]","[Attack]");
                 HandleNode(node);
                 break;
             case State.gulag:
@@ -57,7 +57,7 @@ public class PortHoboDialog : Dialog
                 state = State.end;
                 break;
             case State.end:
-                if(givenMoney || !gulag)
+                if(givenMoney)
                     state = State.giveMoney;
                 else if(gulag)
                     state = State.gulag;
@@ -84,12 +84,15 @@ public class PortHoboDialog : Dialog
                     FactionManager.Instance.FactionEncountered("Hobos");
                 } else if(ans == 1) {
                     state = State.accuse;
-                } else
+                } else {
                     state = State.end;
+                }              
                 break;
             case State.accuse:
                 if(ans == 0) {
                     state = State.giveMoney;
+                    givenMoney = true;
+                    FactionManager.Instance.FactionEncountered("Hobos");
                 } else if(ans == 1) {
                     state = State.gulag;
                     FactionManager.Instance.GetFaction("Hobos").Influence += -1;
