@@ -32,14 +32,16 @@ public class SlumAmbushDialog : Dialog
     }
 
     public override void NextLine() {
-        if(state == State.start) {
-            manager.ST("[As you are travelling towards the slum you encounter two men who seem hostile.]");
-            state = State.criminalThreat;
-        }
+
         if(enoughMoney)
             NextLineMoney();
         else
             NextLineNoMoney();
+
+        if(state == State.start) {
+            manager.ST("[As you are travelling towards the slum you encounter two men who seem hostile.]");
+            state = State.criminalThreat;
+        }
     }
 
     private void NextLineMoney() {
@@ -47,7 +49,7 @@ public class SlumAmbushDialog : Dialog
         switch(state) {
             case State.criminalThreat:
                 Camera.main.GetComponent<CameraFollow>().SetGOToFollow(gameObject);
-                node = new DialogNode("Well, well, well. What do we have here? 'Aven't seen you face 'round these parts before. You'd better pay tribute to " +
+                node = new DialogNode("Well, well, well. What do we have here? 'Aven't seen your face 'round these parts before. You'd better pay tribute to " +
                     "the Society for Habitual Infraction of Traditions or you might really get hurt, lad. The costs' five marks.","I've never heard of them before.","I'm heading to the slums to find some \"honest\" work.","[Give 5 marks]");
                 HandleNode(node);
                 break;
@@ -99,7 +101,7 @@ public class SlumAmbushDialog : Dialog
         switch(state) {
             case State.criminalThreat:
                 Camera.main.GetComponent<CameraFollow>().SetGOToFollow(gameObject);
-                node = new DialogNode("Well, well, well. What do we have here? 'Aven't seen you face 'round these parts before. You'd better pay tribute to " +
+                node = new DialogNode("Well, well, well. What do we have here? 'Aven't seen your face 'round these parts before. You'd better pay tribute to " +
                     "the Society for Habitual Infraction of Traditions or you might really get hurt, lad. The costs' five marks.","I've never heard of them before.","I'm heading to the slums to find some \"honest\" work.","I don't have enough money.");
                 HandleNode(node);
                 break;
