@@ -18,6 +18,8 @@ public class AIScript : MonoBehaviour
 
     private int patrolTarget;
 
+    private bool playerDead = false;
+
     private enum State
     {
         Idle,
@@ -92,6 +94,7 @@ public class AIScript : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (playerDead) return;
         dist = Vector3.Distance(transform.position, player.gameObject.transform.position);
         if (dist < 10f && dist > 2.5f)
         {
@@ -108,4 +111,11 @@ public class AIScript : MonoBehaviour
         lastState = state;
         state = _state;
     }
+
+    public void PlayerDied()
+    {
+        playerDead = true;
+        state = State.Patrol;
+    }
+
 }

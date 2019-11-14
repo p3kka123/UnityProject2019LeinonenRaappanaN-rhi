@@ -20,6 +20,7 @@ public class Gamemanager : MonoBehaviour
     private GameObject toolTip;
     private TextMeshProUGUI money;
     private UIJournalStatsInvController uiJSIcontroller;
+    private UIFader deathScreen;
     private string prevSceneName;
 
     private List<PlayerSpawnPoint> spawnPoints = new List<PlayerSpawnPoint>();
@@ -49,6 +50,7 @@ public class Gamemanager : MonoBehaviour
     public Texture2D BaseCursor { get => baseCursor; set => baseCursor = value; }
     public GameObject ToolTip { get => toolTip; set => toolTip = value; }
     public TextMeshProUGUI Money { get => money; set => money = value; }
+    public UIFader DeathScreen { get => deathScreen; set => deathScreen = value; }
 
     public enum GameState
     {
