@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e628c65e12fc035499e6a155b97f553d, type: 3}
   m_Name: CrimeGang
   m_EditorClassIdentifier: 
-  factionName: Gangbangers
+  factionName: Society for Habitual Infraction of Traditions
   influence: 0

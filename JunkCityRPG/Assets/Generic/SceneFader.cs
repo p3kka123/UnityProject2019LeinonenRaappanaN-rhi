@@ -51,7 +51,7 @@ public class SceneFader : MonoBehaviour
     }
     #endregion
     #region HELPERS
-    public IEnumerator FadeAndLoadScene(FadeDirection fadeDirection,string sceneToLoad) {
+    public IEnumerator FadeAndLoadScene(FadeDirection fadeDirection,string sceneToLoad) {        
         yield return Fade(fadeDirection);
         Gamemanager.Instance.PrevSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(sceneToLoad);

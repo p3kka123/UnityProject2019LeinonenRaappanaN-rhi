@@ -26,6 +26,7 @@ public class Gamemanager : MonoBehaviour
 
     [SerializeField] private Texture2D baseCursor;
     [SerializeField] private Texture2D interactableCursor;
+    [SerializeField] private Texture2D attackCursor;
 
 
     public GameState CurrentState { get => currentState; 
@@ -49,6 +50,7 @@ public class Gamemanager : MonoBehaviour
     public Texture2D BaseCursor { get => baseCursor; set => baseCursor = value; }
     public GameObject ToolTip { get => toolTip; set => toolTip = value; }
     public TextMeshProUGUI Money { get => money; set => money = value; }
+    public Texture2D AttackCursor { get => attackCursor; set => attackCursor = value; }
 
     public enum GameState
     {
