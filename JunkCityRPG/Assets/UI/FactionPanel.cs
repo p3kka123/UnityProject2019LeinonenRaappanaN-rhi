@@ -17,7 +17,7 @@ public class FactionPanel : MonoBehaviour
         {
             print(faction.name + " encountered " + faction.FactionEncountered);
             if (faction.FactionEncountered)
-                textString += faction.FactionName + "\r\t\t\t\t\t" + faction.GetFactionOpinion() + "\n";
+                textString += faction.FactionName + "\r\t\t\t\t\t\t\t" + faction.GetFactionOpinion() + "\n";
         }
         text.SetText(textString);
     }
