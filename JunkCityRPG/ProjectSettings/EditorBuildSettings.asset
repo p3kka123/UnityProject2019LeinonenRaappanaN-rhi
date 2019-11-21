@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SlumAmbush.unity
     guid: 99d875b91081116469e2e4d10f564a4a
+  - enabled: 1
+    path: Assets/Scenes/Slum2.unity
+    guid: ae4191f0a76e32042a612ca1403895a2
   m_configObjects: {}
