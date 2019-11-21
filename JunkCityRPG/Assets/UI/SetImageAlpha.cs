@@ -8,7 +8,7 @@ public class SetImageAlpha : MonoBehaviour
 
     private Image image;
 
-    private void Start()
+    private void OnDisable()
     {
         image = GetComponent<Image>();
     }

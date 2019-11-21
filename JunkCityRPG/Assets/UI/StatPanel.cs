@@ -6,9 +6,11 @@ using TMPro;
 public class StatPanel : MonoBehaviour
 {
     private TextMeshProUGUI text;
+    private StatUpHandler statUpHandler;
 
     public void PrintStats()
     {
+        if (statUpHandler == null) statUpHandler = GetComponentInChildren<StatUpHandler>();
         if(text == null)text = GetComponentInChildren<TextMeshProUGUI>();
         text.SetText("Name: \r\t\t\t" + PlayerManager.Instance.Stats.Name
             + "\n\nLevel: \r\t\t\t" + PlayerManager.Instance.Stats.Level.ToString()
@@ -21,6 +23,7 @@ public class StatPanel : MonoBehaviour
             + "\n\nConstitution: \r\t\t\t" + PlayerManager.Instance.Stats.Constitution.ToString()
             + "\n\nCharisma: \r\t\t\t" + PlayerManager.Instance.Stats.Charisma.ToString()
             );
+        statUpHandler.OnStarted();
     }
 
 }

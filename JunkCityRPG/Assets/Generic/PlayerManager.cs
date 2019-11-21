@@ -37,6 +37,7 @@ public class PlayerManager : MonoBehaviour
 
         if(stats == null) {
             stats = new PlayerStats(100,10,10);
+            stats.StatPoints = 10;
             if(stats.Name == null)
                 stats.Name = "Sloppis";
         }

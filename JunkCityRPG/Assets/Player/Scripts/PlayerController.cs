@@ -214,7 +214,7 @@ public class PlayerController : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.N))
-            OpenJSI();
+            OpenJSI(uiJSIcontroller.Mode);
 
         if(Input.GetKeyDown(KeyCode.I)) {
             OpenJSI(2);
