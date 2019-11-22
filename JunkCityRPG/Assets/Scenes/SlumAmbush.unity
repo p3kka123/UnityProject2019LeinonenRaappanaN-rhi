@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb3c6bfaf2e1f341b8b863b31a77e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: SlumScene
+  targetScene: Slum2
 --- !u!65 &182681577
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2674,12 +2674,12 @@ PrefabInstance:
     - target: {fileID: 8171300352388862148, guid: ce3c35055602fc34989ca2d938289afa,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 7821625754651640409, guid: ce3c35055602fc34989ca2d938289afa,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 8977740962330260887, guid: ce3c35055602fc34989ca2d938289afa,
         type: 3}
