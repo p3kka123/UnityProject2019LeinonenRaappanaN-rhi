@@ -16,7 +16,11 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     private bool indoorsCamera;
 
+    private Material helperMaterial;
 
+    private List<Material> cachedMats;
+
+    [SerializeField] Material invMat;
 
     void Start() {
         transform.rotation = Quaternion.Euler(35, 0, 0);
@@ -55,5 +59,32 @@ public class CameraFollow : MonoBehaviour
         offset = pos2;
     }
 
+    private void OnTriggerEnter(Collider other) {
+        MeshRenderer[] renderers = other.transform.GetComponentsInChildren<MeshRenderer>();
+        cachedMats = new List<Material>();
+        foreach(var renderer in renderers) {           
+            cachedMats.Add(renderer.material);
+            renderer.material = invMat;
+        }
+        print("mat count" + cachedMats.Count);
+        print("renderer count" + renderers.Length);
+    }
 
- }
+    private void OnTriggerExit(Collider other) {
+        MeshRenderer[] renderers = other.transform.GetComponentsInChildren<MeshRenderer>();
+        for(int i = 0; i < renderers.Length; i++) {
+            renderers[i].material = cachedMats[i];
+        }
+    }
+
+    private void SwapMats(MeshRenderer renderer) {
+        Material[] objectMats = renderer.materials;
+        helperMaterial = renderer.material;
+        print(helperMaterial);
+        objectMats[0] = objectMats[1];
+        objectMats[1] = helperMaterial;
+        renderer.materials = objectMats;
+        renderer.material = renderer.materials[0];
+    }
+
+}
