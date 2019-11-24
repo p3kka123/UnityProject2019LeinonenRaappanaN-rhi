@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance { get { return _instance; } }
 
     public int Money { get => money; set => money = value; }
+    public List<Item> InventoryItems { get => inventoryItems; set => inventoryItems = value; }
 
     private List<Item> inventoryItems = new List<Item>();
 
@@ -58,27 +59,32 @@ public class Inventory : MonoBehaviour
 
     public void AddItemToInventory(Item itemToAdd) {
         if (ContainsItem(itemToAdd.ItemName)) {
-            int index = inventoryItems.IndexOf(itemToAdd);
-            inventoryItems[index].AmountInInventory++;;
+            int index = InventoryItems.IndexOf(itemToAdd);
+            InventoryItems[index].AmountInInventory++;;
         } else {
-            print(itemToAdd.ToString());
+            print(itemToAdd.ToString() + " added to inventory");
             itemToAdd.AmountInInventory++;
-            inventoryItems.Add(itemToAdd);
+            InventoryItems.Add(itemToAdd);
 
         }
             
     }
 
+    public void ClearInventory() {
+        print("clearing inventory");
+        inventoryItems.Clear();
+    }
+
     public void RemoveItemFromInventory(Item itemToRemove) {
         if(itemToRemove.ItemName == "Fist") return;
         if(itemToRemove.AmountInInventory == 1) 
-            inventoryItems.Remove(itemToRemove);
+            InventoryItems.Remove(itemToRemove);
         else
             itemToRemove.AmountInInventory--;
     }
 
     public bool ContainsItem(string itemToCheck) {
-        foreach(Item item in inventoryItems) {
+        foreach(Item item in InventoryItems) {
             if(item.ItemName == itemToCheck)
                 return true;
         }
@@ -86,8 +92,12 @@ public class Inventory : MonoBehaviour
     }
 
     public Item GetItemFromInventory(Item itemToGet) {
-        int index = inventoryItems.IndexOf(itemToGet);
-        return inventoryItems[index];
+        int index = InventoryItems.IndexOf(itemToGet);
+        print("index " + index);
+        if(index != -1)
+            return InventoryItems[index];
+        else 
+            return null;
     }
 
     public void OpenInventory() {
@@ -105,7 +115,7 @@ public class Inventory : MonoBehaviour
             Destroy(cSetter.gameObject);
 
 
-        foreach (Item item in inventoryItems) {
+        foreach (Item item in InventoryItems) {
             GameObject menuItem = Instantiate(inventoryMenuItem, inventoryElementGrid.transform);
             menuItem.GetComponentInChildren<TextMeshProUGUI>().text = item.ItemName + "   " + item.AmountInInventory;
 

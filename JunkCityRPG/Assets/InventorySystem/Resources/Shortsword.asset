@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28c484a121499b148a53040fc677f9d5, type: 3}
-  m_Name: IronDagger
+  m_Name: Shortsword
   m_EditorClassIdentifier: 
   value: 5
-  itemName: Iron Dagger
-  amountInInventory: 1
-  description: An ordinary iron dagger. Crudely made but deadly in the right hands.
-  weaponGO: {fileID: 1973516734266296, guid: 1dbcba7e01a87f746a5bc48e93e0045a, type: 3}
-  range: 0.8
-  arc: 1
-  attackSpeed: 5
-  damage: 3
+  itemName: Shortsword
+  amountInInventory: 3
+  description: A standard weapon. Used in militias all around the content.
+  weaponGO: {fileID: 163242, guid: 857270e40bfbfaf4da7114f4593562e0, type: 3}
+  range: 1.2
+  arc: 1.2
+  attackSpeed: 3
+  damage: 4
   twoHanded: 0

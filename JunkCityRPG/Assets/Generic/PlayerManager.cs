@@ -63,7 +63,7 @@ public class PlayerManager : MonoBehaviour
     }
     
 
-
+    [System.Serializable]
     public class Equipment
     {
         private Item head;

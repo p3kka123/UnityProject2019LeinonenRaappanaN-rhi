@@ -18,7 +18,7 @@ public class CanvasReporter : MonoBehaviour
     {
         Gamemanager.Instance.UiJSIcontroller = uiJSIController;
         Gamemanager.Instance.InventoryGrid = inventoryGrid;
-        Gamemanager.Instance.Inventory = inventoryGO;
+        Gamemanager.Instance.InventoryGO = inventoryGO;
         Gamemanager.Instance.Notification = notification;
         Gamemanager.Instance.ToolTip = tooltip;
         Gamemanager.Instance.Money = money;

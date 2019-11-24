@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Quest
 {
 
@@ -42,7 +43,7 @@ public class Quest
         return currentPhases;
     }
 
-
+    [System.Serializable]
     public class QuestPhase
     {
         private string phaseDescription;

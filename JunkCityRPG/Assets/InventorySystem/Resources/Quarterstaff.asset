@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28c484a121499b148a53040fc677f9d5, type: 3}
-  m_Name: Shortsword
+  m_Name: Quarterstaff
   m_EditorClassIdentifier: 
   value: 5
-  itemName: Shortsword
-  description: A standard weapon. Used in militias all around the content.
-  weaponGO: {fileID: 163242, guid: 857270e40bfbfaf4da7114f4593562e0, type: 3}
-  range: 1.2
-  arc: 1.2
+  itemName: Quarterstaff
+  amountInInventory: 0
+  description: A long stout staff made from wood. Favored by travellers.
+  weaponGO: {fileID: 4303278736647740313, guid: 5fc7fbe6d02d76d478046134b0374425,
+    type: 3}
+  range: 2
+  arc: 0.6
   attackSpeed: 3
-  damage: 4
-  twoHanded: 0
+  damage: 3
+  twoHanded: 1
