@@ -87,7 +87,7 @@ MeshCollider:
   m_GameObject: {fileID: 101050}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -179,7 +179,7 @@ MeshCollider:
   m_GameObject: {fileID: 105604}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -271,7 +271,7 @@ MeshCollider:
   m_GameObject: {fileID: 121392}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -363,7 +363,7 @@ MeshCollider:
   m_GameObject: {fileID: 127734}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -455,7 +455,7 @@ MeshCollider:
   m_GameObject: {fileID: 132074}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -547,7 +547,7 @@ MeshCollider:
   m_GameObject: {fileID: 133166}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -639,7 +639,7 @@ MeshCollider:
   m_GameObject: {fileID: 144580}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -731,7 +731,7 @@ MeshCollider:
   m_GameObject: {fileID: 155770}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -823,7 +823,7 @@ MeshCollider:
   m_GameObject: {fileID: 166944}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -837,6 +837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 425244}
+  - component: {fileID: 1373895978670051402}
   m_Layer: 0
   m_Name: House4
   m_TagString: Untagged
@@ -869,6 +870,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1373895978670051402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.61, y: 4.58, z: 7.07}
+  m_Center: {x: -0.76, y: 1.82, z: -0.1}
 --- !u!1 &191446
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +970,7 @@ MeshCollider:
   m_GameObject: {fileID: 191446}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -1048,7 +1062,7 @@ MeshCollider:
   m_GameObject: {fileID: 195204}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
