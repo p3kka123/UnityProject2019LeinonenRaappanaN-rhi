@@ -36,7 +36,15 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        gameObject.transform.Rotate(90, 0, 0);
+        if (Gamemanager.Instance.CurrentState != Gamemanager.GameState.Dead)
+        {
+            Gamemanager.Instance.CurrentState = Gamemanager.GameState.Dead;
+            forward = 0;
+            strafe = 0;
+            animator.SetBool("Moving", false);
+            audioSource.Stop();
+            gameObject.transform.Rotate(90, 0, 0);
+        }
     }
 
 

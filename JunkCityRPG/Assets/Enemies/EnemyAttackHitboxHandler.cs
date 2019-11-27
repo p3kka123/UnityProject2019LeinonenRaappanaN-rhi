@@ -13,7 +13,6 @@ public class EnemyAttackHitboxHandler : MonoBehaviour
             print("player hp " + PlayerManager.Instance.Stats.Health);
             if(PlayerManager.Instance.Stats.Health <= 0)
             {
-                Gamemanager.Instance.CurrentState = Gamemanager.GameState.Dead;
                 Gamemanager.Instance.DeathScreen.FadeInDeathScreen();
                 GetComponentInParent<AIScript>().PlayerDied();
                 other.GetComponent<PlayerController>().Die();
