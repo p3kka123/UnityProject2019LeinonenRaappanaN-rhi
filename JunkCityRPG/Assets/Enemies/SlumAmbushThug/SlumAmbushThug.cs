@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIScript : MonoBehaviour
+public class SlumAmbushThug : AIScript
 {
     private NavMeshAgent agent;
 
@@ -16,9 +16,12 @@ public class AIScript : MonoBehaviour
     [SerializeField]
     private GameObject[] targets;
 
+    [SerializeField]
+    private GameObject attackHitBox;
+
     private int patrolTarget;
 
-    private bool playerDead = false;
+    bool aggressive = false;
 
     private enum State
     {
@@ -31,17 +34,29 @@ public class AIScript : MonoBehaviour
     private State lastState;
     private State state;
 
+    public void Answered(bool attack)
+    {
+        if (attack)
+        {
+            aggressive = true;
+            ChangeState(State.Chase);
+        }
+        else
+        {
+            state = State.Patrol;
+        }
+    }
+
     private void Start()
     {
         player = GameObject.FindObjectOfType<PlayerController>();
         animator = gameObject.GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        state = State.Patrol;
+        state = State.Idle;
         lastState = state;
-        Patrol();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         switch (state)
         {
@@ -51,17 +66,25 @@ public class AIScript : MonoBehaviour
                 break;
             case State.Idle:
                 agent.velocity = Vector3.zero;
-                animator.SetInteger("Anim", 0);
+                animator.SetBool("Moving", false);
                 break;
             case State.Chase:
-                animator.SetInteger("Anim", 2);
+                animator.SetBool("Moving", true);
                 agent.SetDestination(player.gameObject.transform.position);
                 break;
             case State.Attack:
                 agent.velocity = Vector3.zero;
                 gameObject.transform.LookAt(player.transform);
-                animator.SetInteger("Anim", 1);
+                animator.SetTrigger("Attack");
                 break;
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            attackHitBox.SetActive(true);
+        }
+        else
+        {
+            attackHitBox.SetActive(false);
         }
     }
 
@@ -69,7 +92,7 @@ public class AIScript : MonoBehaviour
     {
         ChangeState(State.Patrol);
         agent.SetDestination(targets[patrolTarget].transform.position);
-        animator.SetInteger("Anim", 2);
+        animator.SetBool("Moving", true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -94,13 +117,16 @@ public class AIScript : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (playerDead) return;
+        if (Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dead && aggressive) {
+            PlayerDied();
+            return;
+        }
         dist = Vector3.Distance(transform.position, player.gameObject.transform.position);
-        if (dist < 10f && dist > 2.5f)
+        if (dist < 10f && dist > 2.5f && aggressive)
         {
             ChangeState(State.Chase);
         }
-        if (dist < 2.5f)
+        if (dist < 2.5f && aggressive)
         {
             ChangeState(State.Attack);
         }
@@ -112,10 +138,10 @@ public class AIScript : MonoBehaviour
         state = _state;
     }
 
-    public virtual void PlayerDied()
+    public override void PlayerDied()
     {
-        playerDead = true;
-        state = State.Patrol;
+        aggressive = false;
+        ChangeState(State.Idle);
     }
 
 }

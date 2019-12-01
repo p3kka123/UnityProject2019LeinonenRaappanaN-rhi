@@ -9,6 +9,8 @@ public class SlumAmbushDialog : Dialog
     private bool thugsAttack;
     private bool enoughMoney;
 
+    [SerializeField]
+    private SlumAmbushThug[] thugs;
 
     public enum State
     {
@@ -146,6 +148,11 @@ public class SlumAmbushDialog : Dialog
                 FactionManager.Instance.FactionEncountered("Society for Habitual Infraction of Traditions");
                 if(thugsAttack) {
                     FactionManager.Instance.GetFaction("Society for Habitual Infraction of Traditions").Influence += -2;
+                    foreach (SlumAmbushThug thug in thugs)
+                    {
+                        thug.Answered(true);
+                        thug.gameObject.tag = "Enemy";
+                    }
                 }
                 manager.endConvo();
                 break;
@@ -182,6 +189,11 @@ public class SlumAmbushDialog : Dialog
             case State.intimidate:
                 if(ans == 0) {
                     thugsAttack = true;
+                    foreach (SlumAmbushThug thug in thugs)
+                    {
+                        thug.Answered(true);
+                        thug.gameObject.tag = "Enemy";
+                    }
                     state = State.end;
                 } else if(ans == 1)
                     state = State.notEnoughMoney;
@@ -189,6 +201,11 @@ public class SlumAmbushDialog : Dialog
             case State.slumWork:
                 if(ans == 0) {
                     thugsAttack = true;
+                    foreach (SlumAmbushThug thug in thugs)
+                    {
+                        thug.Answered(true);
+                        thug.gameObject.tag = "Enemy";
+                    }
                     state = State.end;
                 } else if(ans == 1)
                     state = State.notEnoughMoney;
@@ -218,6 +235,11 @@ public class SlumAmbushDialog : Dialog
             case State.intimidate:
                 if(ans == 0) {
                     thugsAttack = true;
+                    foreach (SlumAmbushThug thug in thugs)
+                    {
+                        thug.Answered(true);
+                        thug.gameObject.tag = "Enemy";
+                    }
                     state = State.end;
                 } else if(ans == 1)
                     state = State.giveMoney;
@@ -225,6 +247,11 @@ public class SlumAmbushDialog : Dialog
             case State.slumWork:
                 if(ans == 0) {
                     thugsAttack = true;
+                    foreach (SlumAmbushThug thug in thugs)
+                    {
+                        thug.Answered(true);
+                        thug.gameObject.tag = "Enemy";
+                    }
                     state = State.end;
                 } else if(ans == 1)
                     state = State.giveMoney;
