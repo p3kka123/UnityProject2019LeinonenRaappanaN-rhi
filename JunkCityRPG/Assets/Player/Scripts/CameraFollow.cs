@@ -66,8 +66,6 @@ public class CameraFollow : MonoBehaviour
             cachedMats.Add(renderer.material);
             renderer.material = invMat;
         }
-        print("mat count" + cachedMats.Count);
-        print("renderer count" + renderers.Length);
     }
 
     private void OnTriggerExit(Collider other) {

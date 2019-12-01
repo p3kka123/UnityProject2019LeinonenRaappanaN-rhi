@@ -22,6 +22,17 @@ public class Quest
         return questName;
     }
 
+    public void SetQuestPhase(int phase) {
+        Gamemanager.Instance.DisplayNotification("New objective: " + questName);
+        currentPhase = phase;
+    }
+
+    public void AdvanceQuestPhaseByOne() {
+        Gamemanager.Instance.DisplayNotification("New objective: " + questName);
+        currentPhase++;
+        Debug.Log(questName + " phase is now " + currentPhase);
+    }
+
     public virtual void CompleteQuest() {
         completionState = true;
         QuestManager.Instance.CompleteQuest(this);

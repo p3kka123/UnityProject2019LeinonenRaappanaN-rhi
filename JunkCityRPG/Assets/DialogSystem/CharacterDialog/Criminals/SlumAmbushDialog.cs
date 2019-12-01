@@ -75,6 +75,8 @@ public class SlumAmbushDialog : Dialog
                 if(QuestManager.Instance.FindQuest("It ain't much, but it's dishonest work") != null) {
                     manager.ST("I see, you're a man of the streets. You've got the look. If you're up for it, find our headquarters at the slums and we'll see what you're made of.");
                     FactionManager.Instance.GetFaction("Society for Habitual Infraction of Traditions").Influence += 1;
+                    Quest slum = QuestManager.Instance.FindQuest("It ain't much, but it's dishonest work");
+                    slum.AdvanceQuestPhaseByOne();
                     state = State.end;
                 } else {
                     node = new DialogNode("Yeah right, baby face. Now give us your money!","You'll regret this! [Attack]","[Give 5 marks]");
@@ -127,6 +129,8 @@ public class SlumAmbushDialog : Dialog
                 if(QuestManager.Instance.FindQuest("It ain't much, but it's dishonest work") != null) {
                     manager.ST("I see, you're a man of the streets. You've got the look. If you're up for it, find our headquarters at the slums and we'll see what you're made of.");
                     FactionManager.Instance.GetFaction("Society for Habitual Infraction of Traditions").Influence += 1;
+                    Quest slum = QuestManager.Instance.FindQuest("It ain't much, but it's dishonest work");
+                    slum.AdvanceQuestPhaseByOne();
                     state = State.end;
                 } else {
                     node = new DialogNode("Yeah right, baby face. Now give us your money!","You'll regret this! [Attack]","I don't have enough money.");

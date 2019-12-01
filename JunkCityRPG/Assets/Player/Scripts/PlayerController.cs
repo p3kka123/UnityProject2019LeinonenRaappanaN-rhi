@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start() {
         uiJSIcontroller = Gamemanager.Instance.UiJSIcontroller;
-        inventory = Gamemanager.Instance.Inventory;
+        inventory = Gamemanager.Instance.InventoryGO;
         Transform spawnPoint = Gamemanager.Instance.GetPlayerSpawnPosition();
         transform.SetPositionAndRotation(spawnPoint.transform.position, spawnPoint.transform.rotation);
         PlayerManager.Instance.PlayerEquipment.EquipPlayer();
@@ -61,6 +61,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.Y)) {
+            Gamemanager.Instance.LoadGame();
+        }
+
+        if(Input.GetKeyDown(KeyCode.F)) {
+            Gamemanager.Instance.SaveGame();
+        }
+
+        if(Input.GetKeyDown(KeyCode.R)) {
+            Inventory.Instance.ClearInventory();
+        }
+
         if (Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dead) return;
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
             attackHitBox.SetActive(true);
