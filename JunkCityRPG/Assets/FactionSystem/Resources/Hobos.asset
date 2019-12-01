@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Hobos
   m_EditorClassIdentifier: 
   factionName: Hobos
-  influence: 0
+  influence: 1
