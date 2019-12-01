@@ -45,7 +45,7 @@ public class PlayerManager : MonoBehaviour
 
         if(PlayerEquipment == null) {
             playerEquipment = new Equipment();  
-            playerEquipment.RightWeapon = fist;
+            playerEquipment.EquipmentSlots[Equipment.EquipmentSlot.RightHand] = fist;
         }
         SceneManager.sceneLoaded += OnSceneLoad;
     }
@@ -66,30 +66,51 @@ public class PlayerManager : MonoBehaviour
     [System.Serializable]
     public class Equipment
     {
-        private Item head;
-        private Item body;
-        private Item legs;
-        private Item feet;
-        private Item hands;
-        private Item leftHand;
-        private Item rightWeapon;
-        private Item amulet;
-        private Item ring1;
-        private Item ring2;
 
-        public Item Head { get => head; set => head = value; }
-        public Item Body { get => body; set => body = value; }
-        public Item Legs { get => legs; set => legs = value; }
-        public Item Hands { get => hands; set => hands = value; }
-        public Item LeftHand { get => leftHand; set => leftHand = value; }
-        public Item RightWeapon { get => rightWeapon; set => rightWeapon = value; }
-        public Item Amulet { get => amulet; set => amulet = value; }
-        public Item Ring1 { get => ring1; set => ring1 = value; }
-        public Item Ring2 { get => ring2; set => ring2 = value; }
-        public Item Feet { get => feet; set => feet = value; }
+        [System.Serializable]
+        public enum EquipmentSlot
+        {
+            Head,
+            Body,
+            Legs,
+            Feet,
+            Hands,
+            leftHand,
+            RightHand,
+            Amulet,
+            Ring1,
+            Ring2
+        }
+
+
+        private Dictionary<EquipmentSlot, Item> equipment = new Dictionary<EquipmentSlot, Item>();
+
+        public Dictionary<EquipmentSlot,Item> EquipmentSlots { get => equipment; set => equipment = value; }
+
+        //private Item head;
+        //private Item body;
+        //private Item legs;
+        //private Item feet;
+        //private Item hands;
+        //private Item leftHand;
+        //private Item rightWeapon;
+        //private Item amulet;
+        //private Item ring1;
+        //private Item ring2;
+
+        //public Item Head { get => head; set => head = value; }
+        //public Item Body { get => body; set => body = value; }
+        //public Item Legs { get => legs; set => legs = value; }
+        //public Item Hands { get => hands; set => hands = value; }
+        //public Item LeftHand { get => leftHand; set => leftHand = value; }
+        //public Item RightWeapon { get => rightWeapon; set => rightWeapon = value; }
+        //public Item Amulet { get => amulet; set => amulet = value; }
+        //public Item Ring1 { get => ring1; set => ring1 = value; }
+        //public Item Ring2 { get => ring2; set => ring2 = value; }
+        //public Item Feet { get => feet; set => feet = value; }
 
         public void EquipPlayer() {
-            Inventory.Instance.EquipWeapon(rightWeapon as Weapon);
+            Inventory.Instance.EquipWeapon(EquipmentSlots[EquipmentSlot.RightHand] as Weapon);
         }
 
     }

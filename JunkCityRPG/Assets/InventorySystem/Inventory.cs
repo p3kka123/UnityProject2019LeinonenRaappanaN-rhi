@@ -129,7 +129,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void EquipWeapon(Weapon weapon) {
-        PlayerManager.Instance.PlayerEquipment.RightWeapon = weapon;
+        PlayerManager.Instance.PlayerEquipment.EquipmentSlots[PlayerManager.Equipment.EquipmentSlot.RightHand] = weapon;
         PlayerManager.Instance.AttackHitBox.transform.localScale = new Vector3(weapon.Arc, 0.8f, weapon.Range);
 
         if(equippedWeaponGO != null) {

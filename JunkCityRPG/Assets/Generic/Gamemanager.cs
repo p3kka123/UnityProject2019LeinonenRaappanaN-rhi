@@ -109,14 +109,17 @@ public class Gamemanager : MonoBehaviour
 
 
 
-        //save.activeQuests = QuestManager.Instance.activeQuests;
-        //save.completedQuests = QuestManager.Instance.completedQuests;
+        save.activeQuests = QuestManager.Instance.activeQuests;
+        save.completedQuests = QuestManager.Instance.completedQuests;
 
         save.money = Inventory.Instance.Money;
-        //save.items = Inventory.Instance.InventoryItems;
         foreach(Item item in Inventory.Instance.InventoryItems) {
             save.items.Add(item.ItemName, item.AmountInInventory);
             print(item.ItemName + " Saved");
+        }
+
+        foreach(var slot in PlayerManager.Instance.PlayerEquipment.EquipmentSlots) {
+            save.equipment.Add(slot.Key, slot.Value.ItemName);
         }
 
         save.currScene = SceneManager.GetActiveScene().name;
@@ -138,7 +141,7 @@ public class Gamemanager : MonoBehaviour
     public void LoadGame() {
         if(File.Exists(Application.persistentDataPath + "/gamesave.save")) {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save",FileMode.Open);
             Save save = (Save)bf.Deserialize(file);
             file.Close();
 
@@ -165,36 +168,38 @@ public class Gamemanager : MonoBehaviour
             PlayerManager.Instance.Stats.Strength = save.strength;
             PlayerManager.Instance.Stats.Wisdom = save.wisdom;
 
-            //Inventory.Instance.InventoryItems = save.items;
+            foreach(var slot in save.equipment) {
+                Item itemObj = Resources.Load<Item>(slot.Value);
+                PlayerManager.Instance.PlayerEquipment.EquipmentSlots[slot.Key] = itemObj;
+
+                foreach(var item in save.items) {
+                    Item itemObject = Resources.Load<Item>(item.Key);
+
+                    if(itemObject == null) {
+                        print("itemobject nukll");
+                        continue;
+                    }
+
+                    if(itemObject.ItemName == "Fist")
+                        itemObject.AmountInInventory = 0;
+                    else
+                        itemObject.AmountInInventory = item.Value - 1;
+
+                    Inventory.Instance.AddItemToInventory(itemObject);
+                }
+
+                Inventory.Instance.Money = save.money;
+
+                QuestManager.Instance.activeQuests = save.activeQuests;
+                QuestManager.Instance.completedQuests = save.completedQuests;
 
 
-            
 
 
-
-            foreach(var item in save.items) {
-                Item itemObject = Resources.Load<Item>(item.Key);
-
-                if(itemObject.ItemName == "Fist")
-                    itemObject.AmountInInventory = 0;
-                else
-                    itemObject.AmountInInventory = item.Value - 1;
-        
-                Inventory.Instance.AddItemToInventory(itemObject);
+                print("game loaded");
             }
-
-            Inventory.Instance.Money = save.money;
-
-            //QuestManager.Instance.activeQuests = save.activeQuests;
-            //QuestManager.Instance.completedQuests = save.completedQuests;
-
-
-
-
-            print("game loaded");
         }
     }
-
     public Transform GetPlayerSpawnPosition() {
         foreach(PlayerSpawnPoint spawnPoint in spawnPoints) {
             if(spawnPoint.PreviousScene == prevSceneName) {

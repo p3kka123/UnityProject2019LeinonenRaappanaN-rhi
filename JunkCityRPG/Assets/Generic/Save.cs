@@ -27,8 +27,10 @@ public class Save
 
     //public PlayerManager.Equipment equipment;
 
-    //public List<Quest> activeQuests;
-    //public List<Quest> completedQuests;
+    public Dictionary<PlayerManager.Equipment.EquipmentSlot,string> equipment = new Dictionary<PlayerManager.Equipment.EquipmentSlot,string>();
+
+    public List<Quest> activeQuests;
+    public List<Quest> completedQuests;
 
     public string currScene;
 }

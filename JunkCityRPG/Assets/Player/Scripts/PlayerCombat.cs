@@ -25,12 +25,12 @@ public class PlayerCombat : MonoBehaviour
 
     private void DamageEnemy(GameObject target) {
         target.GetComponent<EnemyBase>().TakeDamage(CalculateDamage());
-        print("Hit enemy: " + target + " with weapon: " + PlayerManager.Instance.PlayerEquipment.RightWeapon);
+        print("Hit enemy: " + target + " with weapon: " + PlayerManager.Instance.PlayerEquipment.EquipmentSlots[PlayerManager.Equipment.EquipmentSlot.RightHand]);
     }
 
     private int CalculateDamage() {
         PlayerManager mg = PlayerManager.Instance;
-        Weapon weapon = mg.PlayerEquipment.RightWeapon as Weapon;
+        Weapon weapon = mg.PlayerEquipment.EquipmentSlots[PlayerManager.Equipment.EquipmentSlot.RightHand] as Weapon;
 
         return mg.Stats.Strength + weapon.Damage;
     }
