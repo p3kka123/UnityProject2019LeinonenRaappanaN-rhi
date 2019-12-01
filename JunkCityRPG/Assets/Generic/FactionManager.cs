@@ -7,10 +7,11 @@ public class FactionManager : MonoBehaviour
     private static FactionManager _instance;
     public static FactionManager Instance { get { return _instance; } }
 
+    public List<Faction> Factions { get => factions; set => factions = value; }
+
     [SerializeField]
     private List<Faction> factions = new List<Faction>();
 
-    public List<Faction> Factions { get => factions;}
 
     private void Start() {
 
@@ -25,6 +26,8 @@ public class FactionManager : MonoBehaviour
         //    print(faction.FactionName + " " + faction.GetFactionOpinion());
         //}
     }
+
+    
 
     public void FactionEncountered(string factionName) {
         foreach(Faction faction in Factions) {
@@ -43,7 +46,7 @@ public class FactionManager : MonoBehaviour
                 return faction;
             }
         }
-        Debug.LogWarning("Couldn't set faction encountered. " + factionName + "was not found.");
+        Debug.LogWarning(factionName + "was not found.");
         return null;        
     }
 

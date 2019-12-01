@@ -70,18 +70,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Y)) {
-            Gamemanager.Instance.LoadGame();
-        }
-
-        if(Input.GetKeyDown(KeyCode.F)) {
-            Gamemanager.Instance.SaveGame();
-        }
-
-        if(Input.GetKeyDown(KeyCode.R)) {
-            Inventory.Instance.ClearInventory();
-        }
-
         if (Gamemanager.Instance.CurrentState == Gamemanager.GameState.Dead) return;
         if(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) {
             attackHitBox.SetActive(true);
@@ -138,7 +126,8 @@ public class PlayerController : MonoBehaviour
 
     public void UninitiateDialog()
     {
-        Camera.main.GetComponent<CameraFollow>().SetGOToFollow(gameObject);
+        
+        Camera.main.GetComponent<CameraFollow>()?.SetGOToFollow(gameObject);
         Gamemanager.Instance.CurrentState = Gamemanager.Instance.LastState;
         UnlockFromTarget();
     }

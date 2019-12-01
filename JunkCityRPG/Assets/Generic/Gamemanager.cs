@@ -82,11 +82,13 @@ public class Gamemanager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
-        //SceneManager.sceneLoaded += OnSceneLoad;
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
 
     private void OnSceneLoad(Scene scene,LoadSceneMode mode) {
-        notification.GetComponentInChildren<TextMeshProUGUI>().color = new Color(1,1,1,0);
+        //notification.GetComponentInChildren<TextMeshProUGUI>().color = new Color(1,1,1,0);
+        if(SceneManager.GetActiveScene().name != "IntroCutScene")
+            SaveGame();
     }
 
     private Save CreateSaveGame() {
@@ -107,7 +109,7 @@ public class Gamemanager : MonoBehaviour
         save.strength = PlayerManager.Instance.Stats.Strength;
         save.wisdom = PlayerManager.Instance.Stats.Wisdom;
 
-
+        
 
         save.activeQuests = QuestManager.Instance.activeQuests;
         save.completedQuests = QuestManager.Instance.completedQuests;
@@ -122,8 +124,14 @@ public class Gamemanager : MonoBehaviour
             save.equipment.Add(slot.Key, slot.Value.ItemName);
         }
 
+        foreach(var faction in FactionManager.Instance.Factions) {
+            save.factions.Add(new Save.FactionData(faction.FactionName, faction.Influence, faction.FactionEncountered));
+        }
+
         save.currScene = SceneManager.GetActiveScene().name;
 
+        print("saved scene: " + save.currScene);
+            
         return save;
     }
 
@@ -145,13 +153,15 @@ public class Gamemanager : MonoBehaviour
             Save save = (Save)bf.Deserialize(file);
             file.Close();
 
+
+            print("loaded scene: " + save.currScene);
             SceneManager.LoadScene(save.currScene);
 
             //StartCoroutine(SceneFader.Instance.FadeAndLoadScene(SceneFader.FadeDirection.In,save.currScene));
 
 
 
-            Inventory.Instance.ClearInventory();
+            Inventory.Instance?.ClearInventory();
 
             PlayerManager.Instance.Stats.Charisma = save.charisma;
             PlayerManager.Instance.Stats.Constitution = save.constitution;
@@ -172,32 +182,38 @@ public class Gamemanager : MonoBehaviour
                 Item itemObj = Resources.Load<Item>(slot.Value);
                 PlayerManager.Instance.PlayerEquipment.EquipmentSlots[slot.Key] = itemObj;
 
-                foreach(var item in save.items) {
-                    Item itemObject = Resources.Load<Item>(item.Key);
+            }
 
-                    if(itemObject == null) {
-                        print("itemobject nukll");
-                        continue;
-                    }
+            foreach(var item in save.items) {
+                Item itemObject = Resources.Load<Item>(item.Key);
 
-                    if(itemObject.ItemName == "Fist")
-                        itemObject.AmountInInventory = 0;
-                    else
-                        itemObject.AmountInInventory = item.Value - 1;
-
-                    Inventory.Instance.AddItemToInventory(itemObject);
+                if(itemObject == null) {
+                    print("itemobject nukll");
+                    continue;
                 }
 
-                Inventory.Instance.Money = save.money;
+                if(itemObject.ItemName == "Fist")
+                    itemObject.AmountInInventory = 0;
+                else
+                    itemObject.AmountInInventory = item.Value - 1;
 
-                QuestManager.Instance.activeQuests = save.activeQuests;
-                QuestManager.Instance.completedQuests = save.completedQuests;
-
-
-
-
-                print("game loaded");
+                Inventory.Instance.AddItemToInventory(itemObject);
             }
+
+            foreach(var faction in save.factions) {
+                Faction factionToUpdate = FactionManager.Instance.GetFaction(faction.name);
+                print(faction.name);
+                factionToUpdate.FactionEncountered = faction.encounterState;
+                factionToUpdate.Influence = faction.influence;
+            }
+
+            Inventory.Instance.Money = save.money;
+
+            QuestManager.Instance.activeQuests = save.activeQuests;
+            QuestManager.Instance.completedQuests = save.completedQuests;
+
+
+            print("game loaded");
         }
     }
     public Transform GetPlayerSpawnPosition() {

@@ -27,10 +27,26 @@ public class Save
 
     //public PlayerManager.Equipment equipment;
 
+    public List<FactionData> factions = new List<FactionData>();
+
     public Dictionary<PlayerManager.Equipment.EquipmentSlot,string> equipment = new Dictionary<PlayerManager.Equipment.EquipmentSlot,string>();
 
     public List<Quest> activeQuests;
     public List<Quest> completedQuests;
 
     public string currScene;
+
+    [System.Serializable]
+    public struct FactionData
+    {
+        public string name;
+        public int influence;
+        public bool encounterState;
+
+        public FactionData(string _name, int _influence, bool state) {
+            name = _name;
+            influence = _influence;
+            encounterState = state;
+        }
+    }
 }
