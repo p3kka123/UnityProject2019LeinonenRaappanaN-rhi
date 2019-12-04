@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SlumAmbushThug : AIScript
+public class SlumAmbushThug : EnemyAiScriptBase
 {
     private NavMeshAgent agent;
 
