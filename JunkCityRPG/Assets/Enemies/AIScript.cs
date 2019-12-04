@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class AIScript : MonoBehaviour
+public class AIScript : EnemyAiScriptBase
 {
-    /*private NavMeshAgent agent;
+    private NavMeshAgent agent;
 
     private float dist;
 
@@ -110,11 +110,12 @@ public abstract class AIScript : MonoBehaviour
     {
         lastState = state;
         state = _state;
-    }*/
+    }
 
     public virtual void PlayerDied()
     {
-
+        playerDead = true;
+        ChangeState(State.Patrol);
     }
 
 }
