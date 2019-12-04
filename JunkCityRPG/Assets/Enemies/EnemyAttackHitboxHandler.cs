@@ -19,7 +19,7 @@ public class EnemyAttackHitboxHandler : MonoBehaviour
             if(PlayerManager.Instance.Stats.CurrHealth <= 0)
             {
                 Gamemanager.Instance.DeathScreen.FadeInDeathScreen();
-                GetComponentInParent<AIScript>().PlayerDied();
+                GetComponentInParent<EnemyAiScriptBase>().PlayerDied();
                 other.GetComponent<PlayerController>().Die();
             }
         }
