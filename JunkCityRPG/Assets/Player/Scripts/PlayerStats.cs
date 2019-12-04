@@ -38,17 +38,23 @@ public class PlayerStats
         Health = _health;
         Mana = _mana;
         Strength = _strength;
+        level = 1;
     }
 
 
-    public void GetExp(int _exp)
+    public void GainExp(int _exp)
     {
         exp += _exp;
-        if (exp > 100)
+        if (exp >= 100 * Mathf.Pow(1.5f, level))
         {
+            exp -= (int)(100 * Mathf.Pow(1.5f, level));
             level++;
-            statPoints += 5;
-            exp -= 100;
+            statPoints += 3;
+            Gamemanager.Instance.DisplayNotification("Level up");
+            if (exp >= 100 * Mathf.Pow(1.5f, level))
+            {
+                GainExp(0);
+            }
         }
     }
 

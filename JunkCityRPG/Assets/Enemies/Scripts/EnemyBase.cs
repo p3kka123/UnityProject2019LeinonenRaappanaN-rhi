@@ -6,6 +6,8 @@ public class EnemyBase : MonoBehaviour
 {
 
     private float health;
+    [SerializeField]
+    private int exp;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class EnemyBase : MonoBehaviour
     {
         if(health < 0) {
             Destroy(this.gameObject);
+            PlayerManager.Instance.Stats.GainExp(exp);
             //GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(10,50),Random.Range(10,50),Random.Range(10,50)));
         }
     }
