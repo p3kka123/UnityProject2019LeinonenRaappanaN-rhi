@@ -31,6 +31,7 @@ public class Gamemanager : MonoBehaviour
     [SerializeField] private Texture2D interactableCursor;
     [SerializeField] private Texture2D attackCursor;
 
+    public bool UseSaving = true;
 
     public GameState CurrentState { get => currentState;
         set {
@@ -87,7 +88,7 @@ public class Gamemanager : MonoBehaviour
 
     private void OnSceneLoad(Scene scene,LoadSceneMode mode) {
         //notification.GetComponentInChildren<TextMeshProUGUI>().color = new Color(1,1,1,0);
-        if(SceneManager.GetActiveScene().name != "IntroCutScene")
+        if(SceneManager.GetActiveScene().name != "IntroCutScene" && UseSaving)
             SaveGame();
     }
 
