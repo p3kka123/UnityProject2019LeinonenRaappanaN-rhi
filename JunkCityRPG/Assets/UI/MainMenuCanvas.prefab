@@ -1,5 +1,44 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2324342248757778436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1457894154046016878}
+  m_Layer: 5
+  m_Name: MainMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1457894154046016878
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2324342248757778436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6251033719770768933}
+  - {fileID: 6251033717846674251}
+  - {fileID: 6251033718140610040}
+  - {fileID: 6251033718203589855}
+  m_Father: {fileID: 6251033718916762271}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6251033717747120778
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +207,7 @@ GameObject:
   - component: {fileID: 6251033717846674253}
   - component: {fileID: 6251033717846674252}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: ContinueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +225,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6251033717918078908}
-  m_Father: {fileID: 6251033718916762271}
+  m_Father: {fileID: 1457894154046016878}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -592,7 +631,7 @@ GameObject:
   - component: {fileID: 6251033718140610042}
   - component: {fileID: 6251033718140610041}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: OptionsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,7 +649,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6251033718070664325}
-  m_Father: {fileID: 6251033718916762271}
+  m_Father: {fileID: 1457894154046016878}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -706,7 +745,7 @@ GameObject:
   - component: {fileID: 6251033718203589825}
   - component: {fileID: 6251033718203589824}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -724,7 +763,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6251033718843287825}
-  m_Father: {fileID: 6251033718916762271}
+  m_Father: {fileID: 1457894154046016878}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -993,10 +1032,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 6251033719770768933}
-  - {fileID: 6251033717846674251}
-  - {fileID: 6251033718140610040}
-  - {fileID: 6251033718203589855}
+  - {fileID: 1457894154046016878}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1090,7 +1126,7 @@ GameObject:
   - component: {fileID: 6251033719770768935}
   - component: {fileID: 6251033719770768934}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NewGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1108,7 +1144,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6251033717747120779}
-  m_Father: {fileID: 6251033718916762271}
+  m_Father: {fileID: 1457894154046016878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1204,6 +1240,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_MethodName: StartDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: StartIntroMusic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
