@@ -36,6 +36,7 @@ public class PlayerStats
 
     public PlayerStats(int _health,int _mana,int _strength) {
         Health = _health;
+        CurrHealth = _health;
         Mana = _mana;
         Strength = _strength;
         level = 1;

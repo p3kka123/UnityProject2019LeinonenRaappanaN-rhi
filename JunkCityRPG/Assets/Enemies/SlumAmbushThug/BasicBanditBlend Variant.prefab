@@ -77,6 +77,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &612440737
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6343048159184796579}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!114 &865808828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747135481ad60d84fbe0be7d65318ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exp: 75
+  damage: 5
 --- !u!195 &1567664394
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -167,20 +183,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   attackHitBox: {fileID: 6487165658356987282}
---- !u!136 &612440737
-CapsuleCollider:
+--- !u!114 &9054851237961649686
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6343048159184796579}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.2, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c49d6199a642b4dae9ff03c9427925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6487165658356987282
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +208,6 @@ GameObject:
   - component: {fileID: 550969522532363398}
   - component: {fileID: 9015504017663036283}
   - component: {fileID: 1459624571}
-  - component: {fileID: 827168495}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -286,18 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c49d6199a642b4dae9ff03c9427925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &827168495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6487165658356987282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c49d6199a642b4dae9ff03c9427925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6343048159184698633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,7 +308,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100010, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
       propertyPath: m_Name
-      value: BasicBanditBlend
+      value: BasicBanditBlend Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
       propertyPath: m_TagString
@@ -373,11 +374,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: eef7cb24a513b0b4cab3d620549ce38e, type: 2}
-    - target: {fileID: 13700006, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
+    - target: {fileID: 13700002, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 53488d903ecbd6a46b9603ca10e400cc, type: 2}
-    - target: {fileID: 13700002, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
+    - target: {fileID: 13700006, guid: 6a911f73b5c0e2e4685e8c2305c73322, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 53488d903ecbd6a46b9603ca10e400cc, type: 2}

@@ -5,13 +5,18 @@ using UnityEngine;
 public class EnemyAttackHitboxHandler : MonoBehaviour
 {
 
+    private int thisEnemyDamage;
+
+    private void Awake() {
+        thisEnemyDamage = GetComponent<EnemyBase>().Damage;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            PlayerManager.Instance.Stats.Health -= 10;
-            print("player hp " + PlayerManager.Instance.Stats.Health);
-            if(PlayerManager.Instance.Stats.Health <= 0)
+            other.GetComponent<PlayerCombat>().TakeDamage(thisEnemyDamage);
+            if(PlayerManager.Instance.Stats.CurrHealth <= 0)
             {
                 Gamemanager.Instance.DeathScreen.FadeInDeathScreen();
                 GetComponentInParent<AIScript>().PlayerDied();

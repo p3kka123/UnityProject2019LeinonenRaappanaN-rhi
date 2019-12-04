@@ -36080,31 +36080,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5572047726534134518, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 99b93078fb0b5af40aa083d6468fb754, type: 2}
-    - target: {fileID: 5572047726534134518, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
-        type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572047726534134518, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
-        type: 3}
-      propertyPath: m_LightProbeUsage
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572047726534134518, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
-        type: 3}
-      propertyPath: m_ReflectionProbeUsage
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572047726534134518, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5572047726534134516, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36174,6 +36149,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572047726534134518, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99b93078fb0b5af40aa083d6468fb754, type: 2}
+    - target: {fileID: 5572047726534134518, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572047726534134518, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572047726534134518, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
+        type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572047726534134518, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5572047726534134515, guid: 9e8836e38b868eb4ca3459b47a6a0f4f,
         type: 3}
@@ -61661,12 +61661,12 @@ PrefabInstance:
     - target: {fileID: 8171300352388862148, guid: ce3c35055602fc34989ca2d938289afa,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 7821625754651640409, guid: ce3c35055602fc34989ca2d938289afa,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 1995410633, guid: ce3c35055602fc34989ca2d938289afa, type: 3}
       propertyPath: m_AnchorMin.y
@@ -65211,6 +65211,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8177994598827849301, guid: 73ba79a677b56f8418f9902ac56d7695,
+        type: 3}
+      propertyPath: UseSaving
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ba79a677b56f8418f9902ac56d7695, type: 3}
 --- !u!4 &2043478550 stripped
@@ -67002,11 +67007,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1312821145018494063, guid: cb3f235050efaf64bb3abbd53cee4b37,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4493700974685126210, guid: cb3f235050efaf64bb3abbd53cee4b37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67061,6 +67061,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312821145018494063, guid: cb3f235050efaf64bb3abbd53cee4b37,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1312821146277156173, guid: cb3f235050efaf64bb3abbd53cee4b37,
         type: 3}

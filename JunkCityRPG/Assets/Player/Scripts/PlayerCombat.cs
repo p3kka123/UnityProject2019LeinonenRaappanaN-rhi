@@ -16,6 +16,9 @@ public class PlayerCombat : MonoBehaviour
         Gamemanager.Instance.PlayerRightHandAnchor = rightHandAnchorPoint;       
     }
 
+    public void TakeDamage(int damage) {
+        PlayerManager.Instance.Stats.CurrHealth = PlayerManager.Instance.Stats.CurrHealth - damage;
+    }
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Enemy") {
